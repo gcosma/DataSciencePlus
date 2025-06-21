@@ -1,4 +1,17 @@
-/* src/app.css or src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+To check if you are using those Tailwind directives (`@tailwind base;`, `@tailwind components;`, `@tailwind utilities;`):
+
+1. **Check your build setup:**  
+    - If you have Tailwind CSS installed (look for `tailwindcss` in your `package.json`).
+    - If your project uses PostCSS (look for a `postcss.config.js` file with `tailwindcss` as a plugin).
+
+2. **Check your import:**  
+    - In your main JS/TS file (like `index.js`, `main.jsx`, or `App.js`), you should see an import for your CSS file:
+      ```js
+      import './App.css';
+      ```
+    - This ensures the CSS (and thus Tailwind) is included in your app.
+
+3. **Check your HTML/JSX:**  
+    - If you use Tailwind utility classes (like `className="bg-blue-500 p-4"`), you are using Tailwind.
+
+If all these are true, you are using those lines and need them. If not, you can remove them.

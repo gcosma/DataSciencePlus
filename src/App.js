@@ -27,7 +27,7 @@ export default function ProfCosmaPortfolio() {
       funding: "£2.8M NIHR",
       role: "Co-Investigator (AI lead)",
       icon: Heart,
-      image: "/images/projects/decode-healthcare.jpg",
+      image: "/images/projects/decode-ai.jpg",
       gradient: "from-emerald-400 to-cyan-600",
       partners: ["Leicestershire Partnership NHS Trust", "University of Leicester", "King's College London", "Swansea University"],
       youtubeId: "dQw4w9WgXcQ",
