@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Play } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Play, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock } from 'lucide-react';
+import profileImage from './images/profile/GCosma2.jpg';
+import decodeImage from './images/projects/decode-ai.jpg';
+import isirchImage from './images/projects/isirch-ai.jpg';
+import themisImage from './images/projects/themis-ai.jpg';
+import personImage from './images/team-members/person.jpg';
 
 export default function ProfCosmaPortfolio() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -27,10 +32,10 @@ export default function ProfCosmaPortfolio() {
       funding: "£2.8M NIHR",
       role: "Co-Investigator (AI lead)",
       icon: Heart,
-      image: "/images/projects/decode-ai.jpg",
+      image: decodeImage,
       gradient: "from-emerald-400 to-cyan-600",
       partners: ["Leicestershire Partnership NHS Trust", "University of Leicester", "King's College London", "Swansea University"],
-      youtubeId: "dQw4w9WgXcQ",
+      youtubeId: "5SaU7rDzC3g",
       hasVideo: true,
       pageId: "decode"
     },
@@ -54,11 +59,12 @@ export default function ProfCosmaPortfolio() {
       funding: "£180K THF/NIHR",
       role: "Joint Principal Investigator",
       icon: Target,
-      image: "/images/projects/maternity-ai.jpg",
+      image: isirchImage,
       gradient: "from-purple-400 to-pink-600",
       partners: ["Healthcare Safety Investigation Branch (HSIB)", "Professor Patrick Waterson", "The Health Foundation"],
-      youtubeId: "jNQXAC9IVRw",
+      youtubeIds: ["2h4u5WdZ7dM", "98lofiDaM-A"],
       hasVideo: true,
+      hasMultipleVideos: true,
       pageId: "isirch"
     },
     {
@@ -81,7 +87,7 @@ export default function ProfCosmaPortfolio() {
       funding: "£75K Loughborough EPG & Leicestershire CC",
       role: "Principle Investigator",
       icon: Brain,
-      image: "/images/projects/themis-ai.jpg",
+      image: themisImage,
       gradient: "from-blue-400 to-indigo-600",
       partners: ["Leicestershire County Council", "Dr Axel Finke", "Loughborough University"],
       youtubeId: null,
@@ -91,67 +97,192 @@ export default function ProfCosmaPortfolio() {
   ];
 
   const teamMembers = [
-    {
-      name: "Dr Rania Kousovista",
-      position: "Research Associate - DECODE Project",
-      specialisation: "Clinical Records Analysis & Temporal Data Processing",
-      type: "staff",
-      image: "/images/team-members/person.jpg"
-    },
-    {
-      name: "Dr Emeka Raphael",
-      position: "Research Associate - DECODE Project",
-      specialisation: "Machine Learning & Healthcare AI",
-      type: "staff",
-      image: "/images/team-members/person.jpg"
-    },
-    {
-      name: "Dr Mohit Kumar",
-      position: "Research Associate - I-SIRCh Project",
-      specialisation: "Natural Language Processing & Healthcare Equity",
-      type: "staff",
-      image: "/images/team-members/person.jpg"
-    },
-    {
-      name: "Dr Eufrasio Lima Neto",
-      position: "Research Associate - Themis.AI Project",
-      specialisation: "Machine Learning & Bias Analysis",
-      type: "staff",
-      image: "/images/team-members/person.jpg"
-    },
+    // =============================================================================
+    // CURRENT TEAM MEMBERS
+    // =============================================================================
+    
+    // Current PhD Students (Primary Supervision)
     {
       name: "Petros Andreou",
       position: "PhD Student in Cybersecurity AI",
       specialisation: "Selective Forgetting for Large Language Models",
       funder: "Darktrace",
+      startDate: "April 2024",
       type: "phd",
-      image: "/images/team-members/person.jpg"
+      status: "current",
+      image: personImage
     },
     {
       name: "Alex Buck",
-      position: "PhD Student in AI Applications",
+      position: "PhD Student in AI Applications", 
       specialisation: "AI-based tools for Vehicle Condition Monitoring",
       funder: "Royal Air Force (RAF)",
+      startDate: "October 2023",
       type: "phd",
-      image: "/images/team-members/person.jpg"
+      status: "current",
+      image: personImage
     },
+    {
+      name: "Mikel Williams",
+      position: "PhD Student in Information Retrieval",
+      specialisation: "Neural Information Retrieval with cross-modal knowledge transfer",
+      funder: "Self-funded",
+      startDate: "July 2021",
+      type: "phd",
+      status: "current",
+      image: personImage
+    },
+    {
+      name: "Jamie Lanyon",
+      position: "PhD Student",
+      specialisation: "TBC",
+      funder: "TBC",
+      startDate: "TBC",
+      type: "phd",
+      status: "current",
+      image: personImage
+    },
+
+    // =============================================================================
+    // ALUMNI - RESEARCH STAFF (Now in Academic Positions)
+    // =============================================================================
+    
+    {
+      name: "Dr Rania Kousovista",
+      position: "Senior Researcher, Department of Epidemiology, Erasmus MC & Associate Fellow in AI, Loughborough University",
+      specialisation: "Clinical Records Analysis & Temporal Data Processing",
+      previousRole: "Research Fellow - DECODE Project",
+      type: "research_alumni",
+      image: personImage
+    },
+    {
+      name: "Dr Emeka Raphael",
+      position: "Lecturer, Aston University",
+      specialisation: "Machine Learning & Healthcare AI",
+      previousRole: "Research Associate - DECODE Project", 
+      type: "research_alumni",
+      image: personImage
+    },
+    {
+      name: "Dr Mohit Kumar",
+      position: "Lecturer in Transport and Logistics Management, University of Greenwich & Associate Fellow in AI, Loughborough University",
+      specialisation: "Natural Language Processing & Healthcare Equity",
+      previousRole: "Research Associate - I-SIRCh Project",
+      type: "research_alumni",
+      image: personImage
+    },
+    {
+      name: "Dr Eufrasio Lima Neto",
+      position: "Associate Professor, Department of Statistics, Federal University of Paraíba",
+      specialisation: "Machine Learning & Bias Analysis",
+      previousRole: "Research Associate - Themis.AI Project",
+      type: "research_alumni", 
+      image: personImage
+    },
+
+    // =============================================================================
+    // ALUMNI - PhD GRADUATES
+    // =============================================================================
+    
+    // Recent PhD Completions (2021-2024)
     {
       name: "Jonathan Bailiss",
-      position: "PhD Student in Data Science",
+      position: "PhD Graduate - Data Science",
       specialisation: "Information trajectories in sociodemographic data",
       funder: "County Council Partnership",
-      type: "phd",
-      image: "/images/team-members/person.jpg"
+      startDate: "October 2022",
+      completionDate: "2024",
+      type: "phd_alumni",
+      image: personImage
     },
     {
-      name: "Andrew Houston",
-      position: "PhD Student in Healthcare AI",
+      name: "Andrew Houston", 
+      position: "PhD Graduate - Healthcare AI",
       specialisation: "Complexity-based approaches to improve trust in healthcare AI",
       funder: "Academic Department of Military Rehabilitation",
-      type: "phd",
-      image: "/images/team-members/person.jpg"
+      startDate: "January 2021",
+      completionDate: "2024",
+      type: "phd_alumni",
+      image: personImage
+    },
+    {
+      name: "Jingrui (Jerry) Hou",
+      position: "PhD Graduate - Machine Learning", 
+      specialisation: "Continual Lifelong Learning for Cross-Modal Information Retrieval",
+      funder: "Chinese Scholarship Council (CSC)",
+      startDate: "October 2021",
+      completionDate: "2024",
+      type: "phd_alumni",
+      image: personImage
+    },
+    
+    // PhD Completions (2020-2023)
+    {
+      name: "Clifford Zhang",
+      position: "PhD Graduate - AI & Surface Analysis",
+      specialisation: "AI-based Detection, Classification and Analysis of Defects on Surfaces", 
+      funder: "Railston & Co Ltd and Loughborough University",
+      startDate: "October 2020",
+      completionDate: "December 2023",
+      type: "phd_alumni",
+      image: personImage
+    },
+    {
+      name: "Yan Gong",
+      position: "PhD Graduate - Information Retrieval",
+      specialisation: "Visual-Semantic Embedding Networks for Cross-modal Information Retrieval",
+      funder: "Self-funded", 
+      startDate: "October 2020",
+      completionDate: "August 2023",
+      type: "phd_alumni",
+      image: personImage
+    },
+    
+    // Earlier PhD Completion (2016-2019)
+    {
+      name: "Sadegh Salesi",
+      position: "PhD Graduate - Evolutionary Computation",
+      specialisation: "Evolutionary Computation-based Feature Selection for Finding a Stable Set of Features in High-dimensional Data",
+      startDate: "October 2016", 
+      completionDate: "August 2019",
+      type: "phd_alumni",
+      image: personImage
+    },
+
+    // =============================================================================
+    // ALUMNI - MRes GRADUATES  
+    // =============================================================================
+    
+    {
+      name: "Salim Maaji",
+      position: "MRes Graduate - Deep Learning",
+      specialisation: "Deep Learning for Real-time Voltage Stability Prediction",
+      institution: "Nottingham Trent University",
+      completionDate: "2019",
+      type: "mres_alumni",
+      image: personImage
+    },
+    {
+      name: "Gulrukh Turabee", 
+      position: "MRes Graduate - Deep Learning",
+      specialisation: "Sleep EEG data classification using transparent deep learning",
+      institution: "Nottingham Trent University",
+      completionDate: "2019",
+      type: "mres_alumni",
+      image: personImage
+    },
+    {
+      name: "Bhavesh Pandya",
+      position: "MRes Graduate - Biometric Recognition", 
+      specialisation: "Deep Learning for multi-modal Biometric Recognition",
+      institution: "Nottingham Trent University",
+      completionDate: "2018",
+      type: "mres_alumni",
+      image: personImage
     }
   ];
+
+
 
   const Navigation = () => (
     <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-xl shadow-lg">
@@ -168,7 +299,7 @@ export default function ProfCosmaPortfolio() {
           </div>
           
           <div className="hidden md:flex items-center space-x-1">
-            {['home', 'projects', 'group'].map((page) => (
+            {['home', 'projects', 'group', 'outreach'].map((page) => (
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
@@ -178,7 +309,8 @@ export default function ProfCosmaPortfolio() {
                     : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
                 }`}
               >
-                {page === 'group' ? 'Research Group' : page}
+        
+                {page === 'group' ? 'Research Group' : page === 'outreach' ? 'Outreach' : page}
               </button>
             ))}
           </div>
@@ -194,13 +326,13 @@ export default function ProfCosmaPortfolio() {
         {isMenuOpen && (
           <div className="md:hidden pb-4 border-t border-gray-200 mt-4">
             <div className="space-y-2 pt-4">
-              {['home', 'projects', 'group'].map((page) => (
+              {['home', 'projects', 'group', 'outreach'].map((page) => (
                 <button
                   key={page}
                   onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }}
                   className="block w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 capitalize"
                 >
-                  {page === 'group' ? 'Research Group' : page}
+                  {page === 'group' ? 'Research Group' : page === 'outreach' ? 'Outreach' : page}
                 </button>
               ))}
             </div>
@@ -274,7 +406,7 @@ export default function ProfCosmaPortfolio() {
                 <div className="w-96 h-96 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-3xl rotate-3 shadow-2xl"></div>
                 <div className="absolute inset-4 bg-white rounded-3xl shadow-inner flex items-center justify-center -rotate-3">
                   <img 
-                    src="/images/profile/georgina-cosma.jpg" 
+                    src={profileImage}
                     alt="Professor Georgina Cosma"
                     className="w-80 h-80 rounded-2xl object-cover"
                   />
@@ -437,6 +569,7 @@ export default function ProfCosmaPortfolio() {
     </div>
   );
 
+
   const ProjectPageTemplate = ({ project }) => {
     const IconComponent = project.icon;
     
@@ -481,7 +614,27 @@ export default function ProfCosmaPortfolio() {
               </div>
               
               <div className="space-y-6">
-                {project.hasVideo && project.youtubeId ? (
+                {project.hasVideo && project.hasMultipleVideos && project.youtubeIds ? (
+                  <div className="space-y-4">
+                    {project.youtubeIds.map((videoId, index) => (
+                      <div key={index} className="relative">
+                        <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
+                          <iframe
+                            src={`https://www.youtube.com/embed/${videoId}`}
+                            title={`${project.title} Project Video ${index + 1}`}
+                            className="w-full h-full"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                        {index === 0 && (
+                          <p className="text-center text-sm text-gray-600 mt-3">Project overview and research findings</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ) : project.hasVideo && project.youtubeId ? (
                   <div className="relative">
                     <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
                       <iframe
@@ -551,6 +704,7 @@ export default function ProfCosmaPortfolio() {
     );
   };
 
+
   const ResearchGroupPage = () => (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
       <div className="max-w-7xl mx-auto px-6 py-20">
@@ -561,30 +715,11 @@ export default function ProfCosmaPortfolio() {
           </p>
         </div>
 
+        {/* Current PhD Students */}
         <div className="mb-20">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Research Staff</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Current PhD Students</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.filter(member => member.type === 'staff').map((member, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-gray-600 text-sm mb-3">{member.position}</p>
-                  <p className="text-gray-700 text-sm">{member.specialisation}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">PhD Students</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.filter(member => member.type === 'phd').map((member, i) => (
+            {teamMembers.filter(member => member.type === 'phd' && member.status === 'current').map((member, i) => (
               <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
                 <img 
                   src={member.image} 
@@ -595,7 +730,87 @@ export default function ProfCosmaPortfolio() {
                   <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
                   <p className="text-gray-600 text-sm mb-3">{member.position}</p>
                   <p className="text-gray-700 text-sm mb-2">{member.specialisation}</p>
-                  <p className="text-gray-500 text-xs">Funded by: {member.funder}</p>
+                  <div className="space-y-1">
+                    <p className="text-gray-500 text-xs">Funded by: {member.funder}</p>
+                    <p className="text-gray-500 text-xs">Started: {member.startDate}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Research Alumni */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Research Alumni</h2>
+          <p className="text-gray-600 mb-8">Former research staff who have moved to prestigious academic positions</p>
+          <div className="grid md:grid-cols-2 gap-8">
+            {teamMembers.filter(member => member.type === 'research_alumni').map((member, i) => (
+              <div key={i} className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                <div className="flex items-start gap-6">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-24 h-24 rounded-xl object-cover flex-shrink-0"
+                  />
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                    <p className="text-gray-600 text-sm mb-2">{member.position}</p>
+                    <p className="text-gray-700 text-sm mb-2">{member.specialisation}</p>
+                    <p className="text-blue-600 text-xs font-medium">{member.previousRole}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* PhD Alumni */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">PhD Alumni</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.filter(member => member.type === 'phd_alumni').map((member, i) => (
+              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                  <p className="text-gray-600 text-sm mb-2">{member.position}</p>
+                  <p className="text-gray-700 text-sm mb-3">{member.specialisation}</p>
+                  <div className="space-y-1">
+                    {member.funder && <p className="text-gray-500 text-xs">Funded by: {member.funder}</p>}
+                    <p className="text-gray-500 text-xs">
+                      {member.startDate} - {member.completionDate}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* MRes Alumni */}
+        <div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">MRes Alumni</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.filter(member => member.type === 'mres_alumni').map((member, i) => (
+              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                  <p className="text-gray-600 text-sm mb-2">{member.position}</p>
+                  <p className="text-gray-700 text-sm mb-3">{member.specialisation}</p>
+                  <div className="space-y-1">
+                    <p className="text-gray-500 text-xs">{member.institution}</p>
+                    <p className="text-gray-500 text-xs">Completed: {member.completionDate}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -604,6 +819,280 @@ export default function ProfCosmaPortfolio() {
       </div>
     </div>
   );
+
+  const OutreachPage = () => {
+    const timelineEvents = [
+      {
+        date: "June 2025",
+        title: "HealTac Conference Poster Presentation",
+        type: "Conference Presentation",
+        description: "Presented research poster at the HealTac conference, showcasing latest findings in healthcare AI applications.",
+        status: "completed",
+        icon: Award,
+        color: "emerald"
+      },
+      {
+        date: "February 6, 2025",
+        title: "AI Opportunities Action Plan – lessons and opportunities for the public sector",
+        type: "Talk",
+        description: "Delivered talk on AI opportunities and lessons for public sector implementation.",
+        status: "completed",
+        icon: Presentation,
+        color: "blue"
+      },
+      {
+        date: "January 28, 2025",
+        title: "Westminster Health Forum: Priorities for improving maternity services in England",
+        type: "Panel Discussion",
+        description: "Panel member discussing priorities for improving maternal and neonatal safety, and next steps for tackling disparities in care. Chaired half the conference on digital transformation role in maternity care safety.",
+        status: "completed",
+        icon: Users,
+        color: "purple"
+      },
+      {
+        date: "November 8, 2024",
+        title: "NortHFutures Digital Health Symposium",
+        type: "Talk",
+        description: "Presented 'Data Science and AI Solutions for Healthcare' at the digital health symposium.",
+        status: "completed",
+        icon: Heart,
+        color: "rose"
+      },
+      {
+        date: "October 2023",
+        title: "Ethics and Governance in AI Course",
+        type: "Course Delivery",
+        description: "Delivered 12-hour course on Ethics and Governance in AI via the Royal Statistical Society.",
+        status: "completed",
+        icon: BookOpen,
+        color: "indigo"
+      },
+      {
+        date: "October 2023",
+        title: "AI Ethics Training for CDT PhD Students",
+        type: "Training",
+        description: "Delivered AI ethics awareness training for PhD students of CDT centres.",
+        status: "completed",
+        icon: GraduationCap,
+        color: "amber"
+      },
+      {
+        date: "March 2023",
+        title: "Ethical AI Webinar for NHS Knowledge Specialists",
+        type: "Webinar",
+        description: "Conducted webinar about ethical AI specifically for NHS Knowledge and Library specialists.",
+        status: "completed",
+        icon: Monitor,
+        color: "cyan"
+      },
+      {
+        date: "2023",
+        title: "County Council Ethics and Governance Course",
+        type: "Short Course",
+        description: "Delivered short course on Ethics and Governance in AI to county councils.",
+        status: "completed",
+        icon: Code,
+        color: "violet"
+      },
+      {
+        date: "2023",
+        title: "PPI Group Training Sessions",
+        type: "Training",
+        description: "Delivered 4 short courses on machine learning, AI and ethical AI to I-SIRCh and DECODE project Patient and Public Involvement (PPI) groups.",
+        status: "completed",
+        icon: Users,
+        color: "teal"
+      },
+      {
+        date: "January 25, 2023",
+        title: "C-Dice AI Ethics Training",
+        type: "Training",
+        description: "Delivered AI ethics awareness training for C-Dice Postgraduate Researchers and PhD students.",
+        status: "completed",
+        icon: Brain,
+        color: "orange"
+      },
+      {
+        date: "October 2022",
+        title: "Royal Statistical Society AI Course",
+        type: "Course Delivery",
+        description: "Delivered 20-hour course on Ethics and Governance in AI via the Royal Statistical Society.",
+        status: "completed",
+        icon: BookOpen,
+        color: "pink"
+      },
+      {
+        date: "2022",
+        title: "County Council Data Processing Training",
+        type: "Consultancy Training",
+        description: "Delivered 23-hour training to County Council employees on pre-processing large data towards ethical machine learning.",
+        status: "completed",
+        icon: Target,
+        color: "lime"
+      }
+    ];
+
+    const getColorClasses = (color) => {
+      const colors = {
+        emerald: { bg: "bg-emerald-500", badge: "bg-emerald-100 text-emerald-800", glow: "shadow-emerald-200" },
+        blue: { bg: "bg-blue-500", badge: "bg-blue-100 text-blue-800", glow: "shadow-blue-200" },
+        purple: { bg: "bg-purple-500", badge: "bg-purple-100 text-purple-800", glow: "shadow-purple-200" },
+        rose: { bg: "bg-rose-500", badge: "bg-rose-100 text-rose-800", glow: "shadow-rose-200" },
+        indigo: { bg: "bg-indigo-500", badge: "bg-indigo-100 text-indigo-800", glow: "shadow-indigo-200" },
+        amber: { bg: "bg-amber-500", badge: "bg-amber-100 text-amber-800", glow: "shadow-amber-200" },
+        cyan: { bg: "bg-cyan-500", badge: "bg-cyan-100 text-cyan-800", glow: "shadow-cyan-200" },
+        violet: { bg: "bg-violet-500", badge: "bg-violet-100 text-violet-800", glow: "shadow-violet-200" },
+        teal: { bg: "bg-teal-500", badge: "bg-teal-100 text-teal-800", glow: "shadow-teal-200" },
+        orange: { bg: "bg-orange-500", badge: "bg-orange-100 text-orange-800", glow: "shadow-orange-200" },
+        pink: { bg: "bg-pink-500", badge: "bg-pink-100 text-pink-800", glow: "shadow-pink-200" },
+        lime: { bg: "bg-lime-500", badge: "bg-lime-100 text-lime-800", glow: "shadow-lime-200" }
+      };
+      return colors[color] || colors.blue;
+    };
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
+        <div className="max-w-7xl mx-auto px-6 py-20">
+          {/* Header Section */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-blue-600 mb-8 shadow-lg border border-blue-100">
+              <Globe className="w-4 h-4 mr-2" />
+              Professional Outreach & Education
+            </div>
+            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+              Outreach & Course Delivery
+            </h1>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Sharing research and knowledge through conferences, workshops, training sessions, and community engagement activities.
+            </p>
+          </div>
+
+          {/* Course Inquiry Section */}
+          <section className="mb-20">
+            <div className="relative bg-white rounded-3xl p-8 shadow-2xl overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-2xl"></div>
+              
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Course Delivery Services</h2>
+                <p className="text-lg text-gray-600 mb-8 text-center max-w-4xl mx-auto">
+                  If you are a company or organisation interested in a course on Ethical AI, please feel free to send me an email to discuss. 
+                  I also offer courses on Ethics and Governance in AI via the Royal Statistical Society.
+                </p>
+                <div className="text-center">
+                  <a 
+                    href="mailto:g.cosma@lboro.ac.uk" 
+                    className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 inline-flex items-center gap-3 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  >
+                    <Mail className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                    Get in Touch About Courses
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Timeline Section */}
+          <section className="mb-20">
+            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Activities Timeline</h2>
+            <div className="relative">
+              {/* Enhanced Timeline line with gradient */}
+              <div className="absolute left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full shadow-lg"></div>
+              
+              {/* Floating timeline dots */}
+              <div className="absolute left-6 top-0 bottom-0">
+                {timelineEvents.map((_, index) => (
+                  <div 
+                    key={index} 
+                    className="absolute w-8 h-8 bg-white rounded-full shadow-lg border-4 border-blue-300"
+                    style={{ top: `${(index * 100) / (timelineEvents.length - 1)}%` }}
+                  ></div>
+                ))}
+              </div>
+              
+              <div className="space-y-12 pl-4">
+                {timelineEvents.map((event, index) => {
+                  const IconComponent = event.icon;
+                  const colorClasses = getColorClasses(event.color);
+                  
+                  return (
+                    <div key={index} className="relative flex items-start gap-12">
+                      {/* Enhanced Timeline dot */}
+                      <div className={`relative z-10 w-20 h-20 rounded-2xl flex items-center justify-center shadow-2xl ${colorClasses.bg} ${colorClasses.glow} transform hover:scale-110 transition-all duration-300 rotate-3 hover:rotate-0`}>
+                        <IconComponent className="w-10 h-10 text-white" />
+                        <div className="absolute -inset-1 bg-gradient-to-r from-white/20 to-transparent rounded-2xl"></div>
+                      </div>
+                      
+                      {/* Enhanced Content card */}
+                      <div className="flex-1 group">
+                        <div className="relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200 transform hover:-translate-y-2">
+                          {/* Card decoration */}
+                          <div className={`absolute top-0 left-0 w-20 h-1 ${colorClasses.bg} rounded-full`}></div>
+                          <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                          
+                          <div className="flex flex-wrap items-center gap-3 mb-6">
+                            <div className={`px-4 py-2 rounded-full text-sm font-semibold ${colorClasses.badge} shadow-sm`}>
+                              <Calendar className="w-4 h-4 inline mr-2" />
+                              {event.date}
+                            </div>
+                            <div className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">
+                              {event.type}
+                            </div>
+                          </div>
+                          
+                          <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                            {event.title}
+                          </h3>
+                          <p className="text-gray-600 leading-relaxed text-lg">
+                            {event.description}
+                          </p>
+                          
+                          {/* Hover effect decoration */}
+                          <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500 rounded-full"></div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* Enhanced Contact Section */}
+          <section className="text-center">
+            <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-3xl p-12 text-white shadow-2xl overflow-hidden">
+              {/* Background decorations */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-white/5 to-transparent rounded-full"></div>
+              
+              <div className="relative z-10">
+                <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Professional Collaboration
+                </div>
+                <h2 className="text-4xl font-bold mb-6">Get in Touch</h2>
+                <p className="text-xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                  For information about outreach opportunities, conference presentations, course delivery, or ethical AI training, please contact me.
+                </p>
+                <a 
+                  href="mailto:g.cosma@lboro.ac.uk" 
+                  className="group bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                >
+                  <Mail className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+                  Contact Me
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    );
+  };
+
+
 
   return (
     <div className="font-sans antialiased text-gray-900">
@@ -616,6 +1105,7 @@ export default function ProfCosmaPortfolio() {
           {currentPage === 'home' && <HomePage />}
           {currentPage === 'projects' && <ProjectsPage />}
           {currentPage === 'group' && <ResearchGroupPage />}
+          {currentPage === 'outreach' && <OutreachPage />}
         </>
       )}
     </div>
