@@ -1,3 +1,6 @@
+/* Uncomment the following lines if Tailwind CSS is properly set up in your build process */
+/* @tailwind base; */
+/* @tailwind components; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
