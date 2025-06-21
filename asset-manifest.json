@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/datascienceplus/static/css/main.31d6cfe0.css",
-    "main.js": "/datascienceplus/static/js/main.90946a66.js",
+    "main.css": "/datascienceplus/static/css/main.4b10d207.css",
+    "main.js": "/datascienceplus/static/js/main.064f1d07.js",
     "static/js/453.90c60aa3.chunk.js": "/datascienceplus/static/js/453.90c60aa3.chunk.js",
     "index.html": "/datascienceplus/index.html",
-    "main.90946a66.js.map": "/datascienceplus/static/js/main.90946a66.js.map",
+    "main.4b10d207.css.map": "/datascienceplus/static/css/main.4b10d207.css.map",
+    "main.064f1d07.js.map": "/datascienceplus/static/js/main.064f1d07.js.map",
     "453.90c60aa3.chunk.js.map": "/datascienceplus/static/js/453.90c60aa3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.31d6cfe0.css",
-    "static/js/main.90946a66.js"
+    "static/css/main.4b10d207.css",
+    "static/js/main.064f1d07.js"
   ]
 }
