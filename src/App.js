@@ -27,7 +27,7 @@ export default function ProfCosmaPortfolio() {
       funding: "£2.8M NIHR",
       role: "Principal Investigator",
       icon: Heart,
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
+      image: "/images/projects/decode-healthcare.jpg",
       gradient: "from-emerald-400 to-cyan-600",
       partners: ["Leicestershire Partnership NHS Trust", "University of Leicester", "King's College London", "Swansea University"],
       youtubeId: "dQw4w9WgXcQ",
@@ -54,7 +54,7 @@ export default function ProfCosmaPortfolio() {
       funding: "£180K THF/NIHR",
       role: "Joint Principal Investigator",
       icon: Target,
-      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop",
+      image: "/images/projects/maternity-ai.jpg",
       gradient: "from-purple-400 to-pink-600",
       partners: ["Healthcare Safety Investigation Branch (HSIB)", "Professor Patrick Waterson", "The Health Foundation"],
       youtubeId: "jNQXAC9IVRw",
@@ -81,7 +81,7 @@ export default function ProfCosmaPortfolio() {
       funding: "£75K Loughborough EPG & Leicestershire CC",
       role: "Co-Lead Investigator",
       icon: Brain,
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop",
+      image: "/images/projects/themis-ai.jpg",
       gradient: "from-blue-400 to-indigo-600",
       partners: ["Leicestershire County Council", "Dr Axel Finke", "Loughborough University"],
       youtubeId: null,
@@ -96,28 +96,28 @@ export default function ProfCosmaPortfolio() {
       position: "Research Associate - DECODE Project",
       specialisation: "Clinical Records Analysis & Temporal Data Processing",
       type: "staff",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b898?w=300&h=300&fit=crop&crop=face"
+      image: "/images/team-members/person.jpg"
     },
     {
       name: "Dr Emeka Raphael",
       position: "Research Associate - DECODE Project",
       specialisation: "Machine Learning & Healthcare AI",
       type: "staff",
-      image: "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=300&h=300&fit=crop&crop=face"
+      image: "/images/team-members/person.jpg"
     },
     {
       name: "Dr Mohit Kumar",
       position: "Research Associate - I-SIRCh Project",
       specialisation: "Natural Language Processing & Healthcare Equity",
       type: "staff",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+      image: "/images/team-members/person.jpg"
     },
     {
       name: "Dr Eufrasio Lima Neto",
       position: "Research Associate - Themis.AI Project",
       specialisation: "Machine Learning & Bias Analysis",
       type: "staff",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face"
+      image: "/images/team-members/person.jpg"
     },
     {
       name: "Petros Andreou",
@@ -125,7 +125,7 @@ export default function ProfCosmaPortfolio() {
       specialisation: "Selective Forgetting for Large Language Models",
       funder: "Darktrace",
       type: "phd",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+      image: "/images/team-members/person.jpg"
     },
     {
       name: "Alex Buck",
@@ -133,7 +133,7 @@ export default function ProfCosmaPortfolio() {
       specialisation: "AI-based tools for Vehicle Condition Monitoring",
       funder: "Royal Air Force (RAF)",
       type: "phd",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+      image: "/images/team-members/person.jpg"
     },
     {
       name: "Jonathan Bailiss",
@@ -141,7 +141,7 @@ export default function ProfCosmaPortfolio() {
       specialisation: "Information trajectories in sociodemographic data",
       funder: "County Council Partnership",
       type: "phd",
-      image: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?w=300&h=300&fit=crop&crop=face"
+      image: "/images/team-members/person.jpg"
     },
     {
       name: "Andrew Houston",
@@ -149,7 +149,7 @@ export default function ProfCosmaPortfolio() {
       specialisation: "Complexity-based approaches to improve trust in healthcare AI",
       funder: "Academic Department of Military Rehabilitation",
       type: "phd",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face"
+      image: "/images/team-members/person.jpg"
     }
   ];
 
@@ -274,7 +274,7 @@ export default function ProfCosmaPortfolio() {
                 <div className="w-96 h-96 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-3xl rotate-3 shadow-2xl"></div>
                 <div className="absolute inset-4 bg-white rounded-3xl shadow-inner flex items-center justify-center -rotate-3">
                   <img 
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b898?w=400&h=400&fit=crop&crop=face" 
+                    src="/images/profile/georgina-cosma.jpg" 
                     alt="Professor Georgina Cosma"
                     className="w-80 h-80 rounded-2xl object-cover"
                   />
