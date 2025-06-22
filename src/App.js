@@ -58,7 +58,7 @@ export default function ProfCosmaPortfolio() {
       category: "Healthcare Equity & AI Ethics",
       status: "Active Research",
       funding: "£180K THF/NIHR",
-      role: "Joint Principal Investigator",
+      role: "Joint Principal Investigator with Patrick Waterson (human factors)",
       icon: Target,
       image: isirchImage,
       gradient: "from-purple-400 to-pink-600",
@@ -747,7 +747,7 @@ export default function ProfCosmaPortfolio() {
                       </ul>
                     </div>
                     <p className="text-gray-700 font-semibold">
-                      <strong>My Role: Joint Principal Investigator with Patrick Waterson (human factors)</strong>
+                      <strong>My Role: Principal Investigator</strong>
                     </p>
                   </div>
                 )}
