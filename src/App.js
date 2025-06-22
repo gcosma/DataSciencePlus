@@ -63,6 +63,7 @@ export default function ProfCosmaPortfolio() {
       image: isirchImage,
       gradient: "from-purple-400 to-pink-600",
       partners: ["Healthcare Safety Investigation Branch (HSIB)", "The Health Foundation"],
+      github: "https://https://github.com/gcosma/I-SIRchProjectCollection", // Add this line
       youtubeIds: ["2h4u5WdZ7dM", "98lofiDaM-A"],
       hasVideo: true,
       hasMultipleVideos: true,
