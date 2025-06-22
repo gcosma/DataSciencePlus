@@ -5,6 +5,7 @@ import decodeImage from './images/projects/decode-ai.jpg';
 import isirchImage from './images/projects/isirch-ai.jpg';
 import themisImage from './images/projects/themis-ai.jpg';
 import personImage from './images/team-members/person.jpg';
+import svgcKtpImage from './images/projects/svgc-ktp.svg';
 
 export default function ProfCosmaPortfolio() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -42,9 +43,9 @@ export default function ProfCosmaPortfolio() {
     {
       id: 2,
       title: "I-SIRCh",
-      fullTitle: "Using artificial intelligence to improve the investigation of factors contributing to adverse maternity incidents involving Black mothers and families",
+      fullTitle: "Using artificial intelligence to improve the investigation of factors contributing to adverse maternity incidents involving mothers and families across ethnic groups",
       description: "A £180K THF/NIHR project using advanced NLP to address critical healthcare inequalities in maternal mortality.",
-      detailedDescription: "I-SIRCh tackles the healthcare inequality where Black women are four times more likely to die in pregnancy and childbirth. Using sophisticated natural language processing, we analyse maternity incident reports to identify causal factors and systemic biases that contribute to these disparities.",
+      detailedDescription: "I-SIRCh tackles the healthcare inequality in pregnancy and childbirth. Using sophisticated natural language processing, we analyse maternity incident reports to identify causal factors and systemic biases that contribute to these disparities.",
       objectives: [
         "Develop NLP systems for analysing maternity incident reports",
         "Identify causal factors and interaction patterns in adverse outcomes",
@@ -52,7 +53,7 @@ export default function ProfCosmaPortfolio() {
         "Generate actionable insights for healthcare policy",
         "Establish best practices for AI analysis of sensitive healthcare data"
       ],
-      impact: "Will inform targeted interventions to reduce maternal mortality among Black mothers, influencing national healthcare policy and training programmes.",
+      impact: "Will inform targeted interventions to reduce maternal mortality among mothers, influencing national healthcare policy and training programmes.",
       tech: ["Natural Language Processing", "Named Entity Recognition", "Healthcare AI", "Bias Mitigation", "Social Justice AI"],
       category: "Healthcare Equity & AI Ethics",
       status: "Active Research",
@@ -61,7 +62,7 @@ export default function ProfCosmaPortfolio() {
       icon: Target,
       image: isirchImage,
       gradient: "from-purple-400 to-pink-600",
-      partners: ["Healthcare Safety Investigation Branch (HSIB)", "Professor Patrick Waterson", "The Health Foundation"],
+      partners: ["Healthcare Safety Investigation Branch (HSIB)", "The Health Foundation"],
       youtubeIds: ["2h4u5WdZ7dM", "98lofiDaM-A"],
       hasVideo: true,
       hasMultipleVideos: true,
@@ -93,7 +94,35 @@ export default function ProfCosmaPortfolio() {
       youtubeId: null,
       hasVideo: false,
       pageId: "themis"
-    }
+    },
+    {
+      id: 4,
+      title: "SVGC KTP",
+      fullTitle: "Innovative Document Deduplication Algorithms for Government Digital Systems",
+      description: "Knowledge Transfer Partnership with SVGC developing innovative algorithms for government document deduplication and adaptive AI systems that evolve with changing policy landscapes.",
+      detailedDescription: "This pioneering KTP with SVGC develops innovative algorithms specifically for government document deduplication and processing. Our adaptive AI systems are designed to evolve with changing policy landscapes, addressing the critical challenge of managing vast government document repositories. The project creates intelligent deduplication algorithms that understand government document contexts, reduce storage costs, improve information retrieval, and adapt to evolving public sector requirements and policy changes.",
+      objectives: [
+        "Develop innovative algorithms for intelligent government document deduplication",
+        "Create adaptive AI systems that evolve with changing policy landscapes",
+        "Build context-aware deduplication systems for public sector document management",
+        "Implement algorithms that understand government document hierarchies and relationships",
+        "Establish frameworks for scalable document processing in government databases",
+        "Reduce storage costs and improve information retrieval efficiency in public sector"
+      ],
+      impact: "Delivering transformative efficiency in government document management through intelligent deduplication algorithms. The adaptive systems significantly reduce storage costs, eliminate redundant information, and improve document retrieval times. The AI systems evolve with policy changes, ensuring long-term effectiveness and scalability across government departments.",
+      tech: ["Document Deduplication", "Adaptive Algorithms", "Government AI", "Policy-Aware Systems", "Intelligent Document Processing", "Public Sector Innovation"],
+      category: "Government AI & Document Processing",
+      status: "Active Research",
+      funding: "KTP Grant - SVGC Partnership",
+      role: "Academic Supervisor",
+      icon: Target,
+      image: svgcKtpImage, // Use the new image variable
+      gradient: "from-green-400 to-emerald-600",
+      partners: ["SVGC", "Loughborough University", "University of Glasgow (Previous KTP)"],
+      youtubeId: null,
+      hasVideo: false,
+      pageId: "svgc-ktp"
+    }    
   ];
 
   const teamMembers = [
@@ -104,7 +133,7 @@ export default function ProfCosmaPortfolio() {
     // Current PhD Students (Primary Supervision)
     {
       name: "Petros Andreou",
-      position: "PhD Student in Cybersecurity AI",
+      position: "PhD Student in neural machine unlearning",
       specialisation: "Selective Forgetting for Large Language Models",
       funder: "Darktrace",
       startDate: "April 2024",
@@ -134,9 +163,9 @@ export default function ProfCosmaPortfolio() {
     },
     {
       name: "Jamie Lanyon",
-      position: "PhD Student",
-      specialisation: "TBC",
-      funder: "TBC",
+      position: "PhD Student in neural machine unlearning",
+      specialisation: "Selective Forgetting for Large Language Models",
+      funder: "self-funded",
       startDate: "TBC",
       type: "phd",
       status: "current",
@@ -302,7 +331,10 @@ export default function ProfCosmaPortfolio() {
             {['home', 'projects', 'group', 'outreach'].map((page) => (
               <button
                 key={page}
-                onClick={() => setCurrentPage(page)}
+                onClick={() => {
+                        setCurrentPage(page);
+                        setCurrentProject(null); // Clear project view when navigating
+                      }}
                 className={`px-6 py-3 rounded-xl font-medium transition-all duration-200 capitalize ${
                   currentPage === page 
                     ? 'bg-blue-600 text-white shadow-lg' 
@@ -408,7 +440,7 @@ export default function ProfCosmaPortfolio() {
                   <img 
                     src={profileImage}
                     alt="Professor Georgina Cosma"
-                    className="w-80 h-80 rounded-2xl object-cover"
+                    className="w-80 h-80 rounded-2xl object-contain"
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl">
@@ -506,9 +538,9 @@ export default function ProfCosmaPortfolio() {
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="relative w-full h-80 object-cover rounded-3xl group-hover:scale-105 transition-transform duration-500"
+                      className="relative w-full h-80 object-contain rounded-3xl group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
                       <span className="text-sm font-semibold text-gray-700">{project.category}</span>
                     </div>
                     <div className="absolute bottom-6 right-6 bg-white p-4 rounded-2xl shadow-lg">
@@ -573,6 +605,96 @@ export default function ProfCosmaPortfolio() {
   const ProjectPageTemplate = ({ project }) => {
     const IconComponent = project.icon;
     
+    // I-SIRCh project publications timeline data
+    const isirchPublications = project.pageId === 'isirch' ? [
+      {
+        year: "2025",
+        type: "Project Establishment",
+        title: "LENS.ai - Learning from Evidence through Natural language Systems",
+        venue: "Software Development Project Launch",
+        description: "Continuation of I-SIRCh research, extending AI capabilities from HSIB maternity investigation reports to coroners' reports and other healthcare documents, focusing on using artificial intelligence to improve the investigation of factors contributing to adverse maternity incidents involving mothers across ethnic groups",
+        location: "Project Establishment",
+        color: "amber"
+      },
+      {
+        year: "2025",
+        type: "Conference Presentation",
+        title: "What do Prevention of Future Death Reports tell us about maternity care in UK hospitals?",
+        venue: "HealTAC 2025",
+        authors: "Georgina Cosma, Patrick Waterson, Thomas Jun and Jonathan Back",
+        location: "Conference Presentation",
+        color: "emerald"
+      },
+      {
+        year: "2025",
+        type: "Policy Conference Talk",
+        title: "On the role of digital transformation in improving the safety of maternity care, including next steps for the use of AI tools in improving safety outcomes",
+        venue: "Westminster Health Forum policy conference: Priorities for improving maternity services in England",
+        description: "Panel member on 'Priorities for improving maternal and neonatal safety, and next steps for tackling disparities in care'. Chaired half the conference.",
+        date: "28th January 2025",
+        location: "Westminster, London",
+        color: "purple"
+      },
+      {
+        year: "2024",
+        type: "Conference Talk",
+        title: "Data Science and AI Solutions for Healthcare",
+        venue: "NortHFutures Digital Health Symposium",
+        date: "8th November 2024",
+        color: "blue"
+      },
+      {
+        year: "2024",
+        type: "Journal Article",
+        title: "I-SIRch: AI-powered concept annotation tool for equitable extraction and analysis of safety insights from maternity investigations",
+        authors: "Singh, MK, Cosma, G, Waterson, P, Back, J, Jun, GT",
+        venue: "International Journal of Population Data Science",
+        volume: "9(2)",
+        doi: "10.23889/ijpds.v9i2.2439",
+        year_published: "2024",
+        color: "indigo"
+      },
+      {
+        year: "2024",
+        type: "Conference Paper",
+        title: "Intelligent Multi-document Summarisation for Extracting Insights on Racial Inequalities from Maternity Incident Investigation Reports",
+        authors: "Cosma, G., Singh, M.K., Waterson, P., Jun, G.T., Back, J.",
+        venue: "Artificial Intelligence in Healthcare. AIiH 2024",
+        series: "Lecture Notes in Computer Science, vol 14976",
+        publisher: "Springer, Cham",
+        doi: "10.1007/978-3-031-67285-9_23",
+        editors: "Xie, X., Styles, I., Powathil, G., Ceccarelli, M. (eds)",
+        color: "rose"
+      },
+      {
+        year: "2024",
+        type: "Conference Paper", 
+        title: "Unveiling disparities in maternity care: a topic modelling approach to analysing maternity incident investigation reports",
+        authors: "Cosma, G, Singh, MK, Waterson, P, Jun, GT, Back, J",
+        venue: "Artificial Intelligence in Healthcare. First International Conference, AIiH 2024",
+        location: "Swansea, UK, September 4–6, 2024",
+        pages: "pp.295-308",
+        isbn: "9783031672774",
+        doi: "10.1007/978-3-031-67278-1_23",
+        editors: "Xie, X, Styles, I, Powathil, G, Ceccarelli, M (ed)",
+        publisher: "Springer",
+        color: "cyan"
+      }
+    ] : [];
+
+    const getPublicationColorClasses = (color) => {
+      const colors = {
+        emerald: { bg: "bg-emerald-500", badge: "bg-emerald-100 text-emerald-800", glow: "shadow-emerald-200" },
+        blue: { bg: "bg-blue-500", badge: "bg-blue-100 text-blue-800", glow: "shadow-blue-200" },
+        purple: { bg: "bg-purple-500", badge: "bg-purple-100 text-purple-800", glow: "shadow-purple-200" },
+        rose: { bg: "bg-rose-500", badge: "bg-rose-100 text-rose-800", glow: "shadow-rose-200" },
+        indigo: { bg: "bg-indigo-500", badge: "bg-indigo-100 text-indigo-800", glow: "shadow-indigo-200" },
+        cyan: { bg: "bg-cyan-500", badge: "bg-cyan-100 text-cyan-800", glow: "shadow-cyan-200" },
+        amber: { bg: "bg-amber-500", badge: "bg-amber-100 text-amber-800", glow: "shadow-amber-200" }
+      };
+      return colors[color] || colors.blue;
+    };
+    
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
         <div className="max-w-7xl mx-auto px-6 py-20">
@@ -584,7 +706,7 @@ export default function ProfCosmaPortfolio() {
             Back to Projects
           </button>
 
-          <div className="bg-white rounded-3xl p-10 shadow-2xl">
+          <div className="bg-white rounded-3xl p-10 shadow-2xl mb-12">
             <div className="grid lg:grid-cols-2 gap-12 mb-12">
               <div>
                 <div className="flex items-center gap-3 mb-4">
@@ -601,6 +723,35 @@ export default function ProfCosmaPortfolio() {
                 
                 <p className="text-lg text-gray-700 leading-relaxed mb-8">{project.detailedDescription}</p>
                 
+                {/* LENS Project Information for I-SIRCh page */}
+                {project.pageId === 'isirch' && (
+                  <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 p-6 rounded-lg mb-8">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                      <h3 className="text-xl font-bold text-gray-900">LENS.ai - Learning from Evidence through Natural language Systems</h3>
+                    </div>
+                    <p className="text-gray-700 mb-3 font-medium">A continuation of I-SIRCh</p>
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      I-SIRCh tackled healthcare inequalities in maternity care by analysing maternity investigation reports provided by HSIB. LENS.ai extends this capability to analyse coroners' reports and can be further developed to analyse other healthcare reports, using sophisticated natural language processing to identify causal factors and systemic biases that contribute to disparities across ethnic groups.
+                    </p>
+                    <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg mb-4">
+                      <h4 className="font-semibold text-gray-900 mb-3">Key System Capabilities:</h4>
+                      <ul className="text-gray-700 space-y-2">
+                        <li><strong>Automated Data Collection:</strong> Web scraping of UK Judiciary PFD reports with metadata extraction</li>
+                        <li><strong>Intelligent Document Clustering:</strong> Semantic similarity-based grouping and thematic organisation</li>
+                        <li><strong>Advanced Topic Modelling:</strong> Multiple vectorisation methods (TF-IDF, BM25, weighted schemes) for pattern discovery</li>
+                        <li><strong>Generative Summarisation:</strong> AI-powered cluster summaries and extractive text analysis</li>
+                        <li><strong>Healthcare-Specific Annotation:</strong> Bio_ClinicalBERT for medical concept identification</li>
+                        <li><strong>Multi-Framework Analysis:</strong> Theme identification across I-SIRCh, House of Commons, and custom frameworks</li>
+                        <li><strong>Interactive Dashboards:</strong> Comprehensive visualisation with correlation analysis and temporal trends</li>
+                      </ul>
+                    </div>
+                    <p className="text-gray-700 font-semibold">
+                      <strong>My Role: Joint Principal Investigator with Patrick Waterson (human factors)</strong>
+                    </p>
+                  </div>
+                )}
+                
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3">My Role: {project.role}</h4>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -614,6 +765,18 @@ export default function ProfCosmaPortfolio() {
               </div>
               
               <div className="space-y-6">
+                {/* I-SIRCh Image for I-SIRCh page */}
+                {project.pageId === 'isirch' && (
+                  <div className="relative mt-24">
+                    <img 
+                      src={isirchImage}
+                      alt="I-SIRCh AI System Interface"
+                      className="w-full h-80 object-cover rounded-3xl shadow-lg"
+                    />
+                  
+                  </div>
+                )}
+                
                 {project.hasVideo && project.hasMultipleVideos && project.youtubeIds ? (
                   <div className="space-y-4">
                     {project.youtubeIds.map((videoId, index) => (
@@ -699,10 +862,136 @@ export default function ProfCosmaPortfolio() {
               </div>
             </div>
           </div>
+
+          {/* Publications Timeline - Only show for I-SIRCh project */}
+          {project.pageId === 'isirch' && isirchPublications.length > 0 && (
+            <div className="bg-white rounded-3xl p-10 shadow-2xl">
+              <h3 className="text-4xl font-bold text-gray-900 mb-12 text-centre">Publications & Presentations Timeline</h3>
+              
+              <div className="relative">
+                {/* Enhanced Timeline line with gradient */}
+                <div className="absolute left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-indigo-500 rounded-full shadow-lg"></div>
+                
+                {/* Floating timeline dots */}
+                <div className="absolute left-6 top-0 bottom-0">
+                  {isirchPublications.map((_, index) => (
+                    <div 
+                      key={index} 
+                      className="absolute w-8 h-8 bg-white rounded-full shadow-lg border-4 border-blue-300"
+                      style={{ top: `${(index * 100) / (isirchPublications.length - 1)}%` }}
+                    ></div>
+                  ))}
+                </div>
+                
+                <div className="space-y-12 pl-4">
+                  {isirchPublications.map((pub, index) => {
+                    const colorClasses = getPublicationColorClasses(pub.color);
+                    
+                    return (
+                      <div key={index} className="relative flex items-start gap-12">
+                        {/* Enhanced Timeline dot */}
+                        <div className={`relative z-10 w-20 h-20 rounded-2xl flex items-center justify-center shadow-2xl ${colorClasses.bg} ${colorClasses.glow} transform hover:scale-110 transition-all duration-300 rotate-3 hover:rotate-0`}>
+                          <BookOpen className="w-10 h-10 text-white" />
+                          <div className="absolute -inset-1 bg-gradient-to-r from-white/20 to-transparent rounded-2xl"></div>
+                        </div>
+                        
+                        {/* Enhanced Content card */}
+                        <div className="flex-1 group">
+                          <div className="relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200 transform hover:-translate-y-2">
+                            {/* Card decoration */}
+                            <div className={`absolute top-0 left-0 w-20 h-1 ${colorClasses.bg} rounded-full`}></div>
+                            <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            
+                            <div className="flex flex-wrap items-center gap-3 mb-6">
+                              <div className={`px-4 py-2 rounded-full text-sm font-semibold ${colorClasses.badge} shadow-sm`}>
+                                <Calendar className="w-4 h-4 inline mr-2" />
+                                {pub.year}
+                              </div>
+                              <div className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">
+                                {pub.type}
+                              </div>
+                            </div>
+                            
+                            <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                              {pub.title}
+                            </h4>
+                            
+                            {pub.authors && (
+                              <p className="text-gray-600 text-lg mb-3 leading-relaxed">
+                                <span className="font-medium">Authors:</span> {pub.authors}
+                              </p>
+                            )}
+                            
+                            <div className="mb-3">
+                              <p className="text-gray-700 font-medium text-lg">{pub.venue}</p>
+                              {pub.volume && <p className="text-gray-600 text-sm">Volume: {pub.volume}</p>}
+                              {pub.series && <p className="text-gray-600 text-sm">{pub.series}</p>}
+                              {pub.location && <p className="text-gray-600 text-sm">{pub.location}</p>}
+                              {pub.publisher && <p className="text-gray-600 text-sm">Publisher: {pub.publisher}</p>}
+                              {pub.editors && <p className="text-gray-600 text-sm">Editors: {pub.editors}</p>}
+                            </div>
+                            
+                            {pub.description && (
+                              <p className="text-gray-600 mb-3 leading-relaxed bg-blue-50 p-3 rounded-lg border-l-4 border-blue-400">
+                                {pub.description}
+                              </p>
+                            )}
+                            
+                            {pub.date && (
+                              <p className="text-gray-500 text-sm mb-3 flex items-center gap-2">
+                                <Clock className="w-4 h-4" />
+                                {pub.date}
+                              </p>
+                            )}
+                            
+                            <div className="flex flex-wrap gap-3 text-sm">
+                              {pub.pages && (
+                                <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full font-medium">
+                                  Pages: {pub.pages}
+                                </span>
+                              )}
+                              {pub.isbn && (
+                                <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full font-medium">
+                                  ISBN: {pub.isbn}
+                                </span>
+                              )}
+                              {pub.doi && (
+                                <span className="bg-purple-50 text-purple-700 px-3 py-1 rounded-full font-medium">
+                                  DOI: <a 
+                                    href={`https://doi.org/${pub.doi}`} 
+                                    className="text-blue-600 hover:text-blue-800 hover:underline font-medium transition-colors" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    title={`View publication: ${pub.title}`}
+                                  >
+                                    {pub.doi}
+                                  </a>
+                                </span>
+                              )}
+                              {pub.year_published && pub.year_published !== pub.year && (
+                                <span className="bg-gray-50 text-gray-700 px-3 py-1 rounded-full font-medium">
+                                  Published: {pub.year_published}
+                                </span>
+                              )}
+                            </div>
+                            
+                            {/* Hover effect decoration */}
+                            <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500 rounded-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
   };
+
+
 
 
   const ResearchGroupPage = () => (
@@ -724,7 +1013,7 @@ export default function ProfCosmaPortfolio() {
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-64 object-contain"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
@@ -751,7 +1040,7 @@ export default function ProfCosmaPortfolio() {
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-24 h-24 rounded-xl object-cover flex-shrink-0"
+                    className="w-24 h-24 rounded-xl object-contain flex-shrink-0"
                   />
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
@@ -774,7 +1063,7 @@ export default function ProfCosmaPortfolio() {
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-contain"
                 />
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
@@ -801,7 +1090,7 @@ export default function ProfCosmaPortfolio() {
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-contain"
                 />
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
