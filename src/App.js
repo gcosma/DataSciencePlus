@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Play, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock } from 'lucide-react';
+import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Play, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock } from 'lucide-react';
 import profileImage from './images/profile/GCosma2.jpg';
 import decodeImage from './images/projects/decode-ai.jpg';
 import isirchImage from './images/projects/isirch-ai.jpg';
@@ -26,10 +26,10 @@ export default function ProfCosmaPortfolio() {
         "Build scalable solutions for NHS integration",
         "Conduct validation studies ensuring safety and efficacy"
       ],
-      impact: "Will improve healthcare outcomes for thousands of adults with intellectual disabilities across the UK, reducing emergency admissions by up to 30%.",
+      impact: "DECODE will improve healthcare outcomes for adults with intellectual disabilities across England and Wales through AI-driven care coordination tools. The project will deliver decision support systems for NHS implementation, accessible visualisations for patients and carers, and establish ethical frameworks for AI use with vulnerable populations. Findings will directly inform NHS commissioning strategies and care policies, creating scalable solutions that reduce health inequalities whilst delivering cost savings through more efficient care pathways.",
       tech: ["Clinical Records Analysis", "Temporal Data Processing", "Predictive Modeling", "Healthcare AI", "Ethical AI"],
       category: "Healthcare AI & Data Science",
-      status: "Active (2023-2027)",
+      status: "Active (2022-2025)",
       funding: "£2.8M NIHR",
       role: "Co-Investigator (AI lead)",
       icon: Heart,
@@ -63,7 +63,7 @@ export default function ProfCosmaPortfolio() {
       image: isirchImage,
       gradient: "from-purple-400 to-pink-600",
       partners: ["Healthcare Safety Investigation Branch (HSIB)", "The Health Foundation"],
-      github: "https://https://github.com/gcosma/I-SIRchProjectCollection", // Add this line
+      github: "https://github.com/gcosma/I-SIRchProjectCollection", 
       youtubeIds: ["2h4u5WdZ7dM", "98lofiDaM-A"],
       hasVideo: true,
       hasMultipleVideos: true,
@@ -98,7 +98,7 @@ export default function ProfCosmaPortfolio() {
     },
     {
       id: 4,
-      title: "SVGC KTP",
+      title: "KTP with SVGC",
       fullTitle: "Innovative Document Deduplication Algorithms for Government Digital Systems",
       description: "Knowledge Transfer Partnership with SVGC developing innovative algorithms for government document deduplication and adaptive AI systems that evolve with changing policy landscapes.",
       detailedDescription: "This pioneering KTP with SVGC develops innovative algorithms specifically for government document deduplication and processing. Our adaptive AI systems are designed to evolve with changing policy landscapes, addressing the critical challenge of managing vast government document repositories. The project creates intelligent deduplication algorithms that understand government document contexts, reduce storage costs, improve information retrieval, and adapt to evolving public sector requirements and policy changes.",
@@ -119,7 +119,7 @@ export default function ProfCosmaPortfolio() {
       icon: Target,
       image: svgcKtpImage, // Use the new image variable
       gradient: "from-green-400 to-emerald-600",
-      partners: ["SVGC", "Loughborough University", "University of Glasgow (Previous KTP)"],
+      partners: ["SVGC", "Loughborough University"],
       youtubeId: null,
       hasVideo: false,
       pageId: "svgc-ktp"
@@ -492,7 +492,7 @@ export default function ProfCosmaPortfolio() {
                   <Award className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Grant Leadership</h3>
-                <p className="text-gray-600 text-sm">Principal Investigator on major NIHR projects</p>
+                <p className="text-gray-600 text-sm">Principal and co- investigator on externally funded projects</p>
               </div>
               
               <div className="bg-gradient-to-br from-green-50 to-emerald-100 p-6 rounded-2xl">
@@ -508,7 +508,7 @@ export default function ProfCosmaPortfolio() {
                   <Users className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Community Service</h3>
-                <p className="text-gray-600 text-sm">Active reviewer for EPSRC and funding bodies</p>
+                <p className="text-gray-600 text-sm">Active reviewer for EPSRC and other funding bodies</p>
               </div>
             </div>
           </div>
@@ -591,7 +591,18 @@ export default function ProfCosmaPortfolio() {
                         <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
                         View Project Details
                       </button>
-                    </div>
+                    {project.github && (
+                        <a 
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center gap-3 bg-gray-700 hover:bg-gray-800 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                        >
+                          <Github className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                          View on GitHub
+                        </a>
+                      )}
+                      </div>
                   </div>
                 </div>
               </div>
@@ -779,7 +790,7 @@ export default function ProfCosmaPortfolio() {
                 )}
                 
                 {project.hasVideo && project.hasMultipleVideos && project.youtubeIds ? (
-                  <div className="space-y-4">
+                  <div className="space-y-4 mt-24">
                     {project.youtubeIds.map((videoId, index) => (
                       <div key={index} className="relative">
                         <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
@@ -799,7 +810,7 @@ export default function ProfCosmaPortfolio() {
                     ))}
                   </div>
                 ) : project.hasVideo && project.youtubeId ? (
-                  <div className="relative">
+                  <div className="relative mt-24">
                     <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
                       <iframe
                         src={`https://www.youtube.com/embed/${project.youtubeId}`}
@@ -810,7 +821,12 @@ export default function ProfCosmaPortfolio() {
                         allowFullScreen
                       ></iframe>
                     </div>
-                    <p className="text-center text-sm text-gray-600 mt-3">Watch our project overview and research findings</p>
+                    <p className="text-center text-sm text-gray-600 mt-3">Watch our software demo</p>
+                    {project.pageId === 'decode' && (
+                      <div className="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-lg mt-4">
+                        <p className="text-center text-base text-emerald-800 font-medium">If you are interested in exploring our trajectory analysis software for adults with intellectual disabilities, please get in touch to discuss potential collaboration opportunities.</p>
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <div className="relative">
@@ -1265,10 +1281,9 @@ export default function ProfCosmaPortfolio() {
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-2xl"></div>
               
               <div className="relative z-10">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Course Delivery Services</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Let's Work Together</h2>
                 <p className="text-lg text-gray-600 mb-8 text-center max-w-4xl mx-auto">
-                  If you are a company or organisation interested in a course on Ethical AI, please feel free to send me an email to discuss. 
-                  I also offer courses on Ethics and Governance in AI via the Royal Statistical Society.
+                  If you are a company or organisation interested in exploring the potential of a collaboration or consultancy please feel free to send me an email to discuss.
                 </p>
                 <div className="text-center">
                   <a 
