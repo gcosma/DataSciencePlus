@@ -36,6 +36,7 @@ export default function ProfCosmaPortfolio() {
       image: decodeImage,
       gradient: "from-emerald-400 to-cyan-600",
       partners: ["Leicestershire Partnership NHS Trust", "University of Leicester", "King's College London", "Swansea University"],
+      osf: "https://osf.io/kt5fy/", 
       youtubeId: "5SaU7rDzC3g",
       hasVideo: true,
       pageId: "decode"
@@ -88,6 +89,7 @@ export default function ProfCosmaPortfolio() {
       status: "Active Development",
       funding: "£75K Loughborough EPG & Leicestershire CC",
       role: "Principle Investigator",
+      github: "https://github.com/gcosma/ThemisAIPapers-Code",
       icon: Brain,
       image: themisImage,
       gradient: "from-blue-400 to-indigo-600",
@@ -329,7 +331,7 @@ export default function ProfCosmaPortfolio() {
           </div>
           
           <div className="hidden md:flex items-center space-x-1">
-            {['home', 'projects', 'group', 'outreach'].map((page) => (
+            {['home', 'projects', 'group', 'outreach', 'contact'].map((page) => (
               <button
                 key={page}
                 onClick={() => {
@@ -359,7 +361,7 @@ export default function ProfCosmaPortfolio() {
         {isMenuOpen && (
           <div className="md:hidden pb-4 border-t border-gray-200 mt-4">
             <div className="space-y-2 pt-4">
-              {['home', 'projects', 'group', 'outreach'].map((page) => (
+              {['home', 'projects', 'group', 'outreach', 'contact'].map((page) => (
                 <button
                   key={page}
                   onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }}
@@ -602,6 +604,19 @@ export default function ProfCosmaPortfolio() {
                           View on GitHub
                         </a>
                       )}
+
+                    {project.osf && (
+                        <a 
+                          href={project.osf}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                        >
+                          <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                          View on OSF
+                        </a>
+                      )}
+
                       </div>
                   </div>
                 </div>
@@ -693,6 +708,95 @@ export default function ProfCosmaPortfolio() {
         color: "cyan"
       }
     ] : [];
+
+  const decodePublications = project.pageId === 'decode' ? [
+    {
+      year: "2025",
+      type: "Journal Article", 
+      title: "Comorbidity Patterns and Temporal Associations of Multiple Long-Term Conditions in Adults with Intellectual Disability: an observational study in the United Kingdom",
+      authors: "Cosma, G, Abakasanga, E, Kousovista, R, Shabnam, S, Kaur, N, Akbari, A, Kiani, R, Zaccardi, F, Jun, GT, Gangadharan, S",
+      venue: "Accepted to Appear",
+      status: "Accepted for Publication",
+      color: "purple"
+    },
+    {
+      year: "2025", 
+      type: "Journal Article",
+      title: "Temporal patterns of multiple long-term conditions in individuals with intellectual disability living in Wales: an unsupervised clustering approach to disease trajectories",
+      authors: "Kousovista, R, Cosma, G, Abakasanga, E, Akbari, A, Zaccardi, F, Jun, GT, Kiani, R, Gangadharan, S",
+      venue: "Frontiers in Digital Health",
+      volume: "Volume 7",
+      year_published: "2025",
+      url: "https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2025.1528882",
+      doi: "10.3389/fdgth.2025.1528882",
+      issn: "2673-253X",
+      color: "blue"
+    },
+    {
+      year: "2025",
+      type: "Journal Article",
+      title: "Nature and prevalence of long-term conditions in people with intellectual disability: retrospective longitudinal population-based study",
+      authors: "Lewin, G, Kousovista, R, Abakasanga, E, Shivamurthy, R, Cosma, G, Jun, G, Kaur, N, Akbari, A, Gangadharan, S",
+      venue: "BMJ Open",
+      volume: "15(1)",
+      pages: "e090857-e090857",
+      issn: "2044-6055",
+      doi: "10.1136/bmjopen-2024-090857",
+      color: "emerald"
+    },
+    {
+      year: "2025",
+      type: "Journal Article",
+      title: "Equitable hospital length of stay prediction for patients with learning disabilities and multiple long-term conditions using machine learning",
+      authors: "Abakasanga, E, Kousovista, R, Cosma, G, Akbari, A, Zaccardi, F, Kaur, N, Fitt, D, Jun, GT, Kiani, R, Gangadharan, S",
+      venue: "Frontiers in Digital Health",
+      volume: "7",
+      pages: "1538793",
+      date: "February 14, 2025",
+      doi: "10.3389/fdgth.2025.1538793",
+      pmid: "40026843",
+      pmcid: "PMC11868268",
+      color: "amber"
+    },
+    {
+      year: "2024",
+      type: "Conference Paper",
+      title: "Cluster and trajectory analysis of multiple long-term conditions in adults with learning disabilities",
+      authors: "Abakasanga, E, Kousovista, R, Cosma, G, Jun, GT, Kiani, R, Gangadharan, S",
+      venue: "AIiH: International Conference on AI in Healthcare",
+      editors: "Xie, X, Styles, I, Powathil, G, Ceccarelli, M (ed)",
+      location: "Swansea, United Kingdom",
+      isbn: "9783031672842",
+      doi: "10.1007/978-3-031-67285-9_1",
+      color: "rose"
+    },
+    {
+      year: "2024",
+      type: "Conference Paper",
+      title: "Identifying clusters on multiple long-term conditions for adults with learning disabilities",
+      authors: "Abakasanga, E, Kousovista, R, Cosma, G, Jun, GT, Kiani, R, Gangadharan, S",
+      venue: "AIiH: International Conference on AI in Healthcare",
+      editors: "Xie, X, Styles, I, Powathil, G, Ceccarelli, M (ed)",
+      location: "Swansea, United Kingdom", 
+      isbn: "9783031672774",
+      doi: "10.1007/978-3-031-67278-1_4",
+      color: "cyan"
+    },
+    {
+      year: "2024",
+      type: "Conference Abstract",
+      title: "Nature and prevalence of long-term conditions in people with intellectual disability: a study that combines the powers of AI, big data and lived experience",
+      authors: "Lewin, G, Kousovista, R, Abakasanga, E, Shivamurthy, R, Cosma, G",
+      venue: "BJPsych Open",
+      volume: "10(S1)",
+      doi: "10.1192/bjo.2024.192",
+      description: "[Abstract]",
+      color: "indigo"
+    }
+  ] : [];
+
+
+
 
     const getPublicationColorClasses = (color) => {
       const colors = {
@@ -880,28 +984,38 @@ export default function ProfCosmaPortfolio() {
             </div>
           </div>
 
-          {/* Publications Timeline - Only show for I-SIRCh project */}
-          {project.pageId === 'isirch' && isirchPublications.length > 0 && (
+          {/* Publications Timeline  */}
+          
+          {/* Publications Timeline  */}
+          {((project.pageId === 'isirch' && isirchPublications.length > 0) || project.pageId === 'decode') && (
             <div className="bg-white rounded-3xl p-10 shadow-2xl">
-              <h3 className="text-4xl font-bold text-gray-900 mb-12 text-centre">Publications & Presentations Timeline</h3>
-              
+              <div className="text-center mb-12">
+                <h3 className="text-4xl font-bold text-gray-900 mb-4">Publications & Presentations Timeline</h3>
+                {project.pageId === 'decode' && (
+                  <div>
+                    <p className="text-xl text-gray-600 font-medium">Work Package 2: AI & Machine Learning Publications</p>
+                    <div className="mb-6"></div>
+                  </div>
+                )}
+              </div>
               <div className="relative">
                 {/* Enhanced Timeline line with gradient */}
                 <div className="absolute left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-indigo-500 rounded-full shadow-lg"></div>
                 
                 {/* Floating timeline dots */}
                 <div className="absolute left-6 top-0 bottom-0">
-                  {isirchPublications.map((_, index) => (
+                  {(project.pageId === 'isirch' ? isirchPublications : decodePublications).map((_, index) => (
                     <div 
                       key={index} 
                       className="absolute w-8 h-8 bg-white rounded-full shadow-lg border-4 border-blue-300"
-                      style={{ top: `${(index * 100) / (isirchPublications.length - 1)}%` }}
+                      style={{ top: `${(index * 100) / ((project.pageId === 'isirch' ? isirchPublications : decodePublications).length - 1)}%` }}
                     ></div>
                   ))}
                 </div>
-                
+          
+
                 <div className="space-y-12 pl-4">
-                  {isirchPublications.map((pub, index) => {
+                  {(project.pageId === 'isirch' ? isirchPublications : decodePublications).map((pub, index) => {
                     const colorClasses = getPublicationColorClasses(pub.color);
                     
                     return (
@@ -1273,31 +1387,6 @@ export default function ProfCosmaPortfolio() {
             </p>
           </div>
 
-          {/* Course Inquiry Section */}
-          <section className="mb-20">
-            <div className="relative bg-white rounded-3xl p-8 shadow-2xl overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-2xl"></div>
-              
-              <div className="relative z-10">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Let's Work Together</h2>
-                <p className="text-lg text-gray-600 mb-8 text-center max-w-4xl mx-auto">
-                  If you are a company or organisation interested in exploring the potential of a collaboration or consultancy please feel free to send me an email to discuss.
-                </p>
-                <div className="text-center">
-                  <a 
-                    href="mailto:g.cosma@lboro.ac.uk" 
-                    className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 inline-flex items-center gap-3 shadow-xl hover:shadow-2xl transform hover:scale-105"
-                  >
-                    <Mail className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                    Get in Touch About Courses
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* Timeline Section */}
           <section className="mb-20">
             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Activities Timeline</h2>
@@ -1397,7 +1486,216 @@ export default function ProfCosmaPortfolio() {
     );
   };
 
+  const ContactPage = () => (
+  <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
+    <div className="max-w-4xl mx-auto px-6 py-20">
+      {/* Header Section */}
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-blue-600 mb-8 shadow-lg border border-blue-100">
+          <Mail className="w-4 h-4 mr-2" />
+          Get in Touch
+        </div>
+        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+          Contact Details
+        </h1>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          I welcome collaborations, research discussions, and opportunities to share knowledge about AI, data science, and ethical technology development.
+        </p>
+      </div>
 
+      {/* Contact Cards */}
+      <div className="grid md:grid-cols-2 gap-8 mb-16">
+        {/* Email Card */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+            <Mail className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Email</h3>
+          <p className="text-gray-600 mb-4">
+            For research collaborations, consultancy inquiries, or general questions.
+          </p>
+          <a 
+            href="mailto:g.cosma@lboro.ac.uk"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors"
+          >
+            g.cosma@lboro.ac.uk
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+
+        {/* Office Location Card */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+            <MapPin className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Office Location</h3>
+          <p className="text-gray-600 mb-4">
+            School of Science<br />
+            Loughborough University<br />
+            Leicestershire, LE11 3TU<br />
+            United Kingdom
+          </p>
+        </div>
+      </div>
+
+      {/* Social Links */}
+      <div className="bg-white rounded-3xl p-8 shadow-xl mb-16">
+        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Connect with Me</h3>
+        <div className="flex justify-center gap-6">
+          <a 
+            href="https://x.com/gcosma1" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          >
+            <svg className="w-8 h-8 text-gray-700 group-hover:text-blue-600 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a 
+            href="https://github.com/gcosma" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          >
+            <Github className="w-8 h-8 text-gray-700 group-hover:text-blue-600 transition-colors" />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/georginacosma/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          >
+            <Linkedin className="w-8 h-8 text-gray-700 group-hover:text-blue-600 transition-colors" />
+          </a>
+          <a 
+            href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+          >
+            <BookOpen className="w-8 h-8 text-gray-700 group-hover:text-blue-600 transition-colors" />
+          </a>
+        </div>
+      </div>
+      
+
+      {/* Collaboration CTA */}
+      <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-3xl p-12 text-white shadow-2xl overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
+        
+        <div className="relative z-10 text-center">
+          <h2 className="text-3xl font-bold mb-6">Let's Collaborate</h2>
+          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto leading-relaxed">
+            Interested in ethical AI research, healthcare technology, or academic partnerships? I'd love to hear from you.
+          </p>
+          <a 
+            href="mailto:g.cosma@lboro.ac.uk" 
+            className="group bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
+          >
+            <Mail className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+            Send Me an Email
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+  const Footer = () => (
+    <footer className="bg-black text-white">
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* About Section */}
+          <div>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold">GC</span>
+              </div>
+              <div>
+                <h3 className="font-bold">Prof. Georgina Cosma</h3>
+                <p className="text-gray-400 text-xs">Loughborough University</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <a href="https://x.com/gcosma1" target="_blank" rel="noopener noreferrer" 
+                className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="https://github.com/gcosma" target="_blank" rel="noopener noreferrer" 
+                className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+                <Github className="w-4 h-4" />
+              </a>
+              <a href="https://www.linkedin.com/in/georginacosma/" target="_blank" rel="noopener noreferrer"
+                className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
+                className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
+                <BookOpen className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-semibold mb-3">Quick Links</h4>
+            <div className="grid grid-cols-2 gap-2">
+              {['home', 'projects', 'group', 'outreach', 'contact'].map((page) => (
+                <button
+                  key={page}
+                  onClick={() => {
+                    setCurrentPage(page);
+                    setCurrentProject(null);
+                    window.scrollTo(0, 0);
+                  }}
+                  className="text-gray-400 hover:text-white transition-colors capitalize text-sm text-left"
+                >
+                  {page === 'group' ? 'Research Group' : page === 'outreach' ? 'Outreach' : page}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="font-semibold mb-3">Contact</h4>
+            <div className="space-y-2">
+              <a href="mailto:g.cosma@lboro.ac.uk" 
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm">
+                <Mail className="w-3 h-3" />
+                g.cosma@lboro.ac.uk
+              </a>
+              <div className="flex items-start gap-2 text-gray-400 text-sm">
+                <MapPin className="w-3 h-3 mt-1 flex-shrink-0" />
+                <div className="text-xs leading-relaxed">
+                  School of Science, Loughborough University<br />
+                  Leicestershire, LE11 3TU, UK
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800 mt-6 pt-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-2">
+            <p className="text-gray-500 text-xs">
+              © 2025 Professor Georgina Cosma. All rights reserved.
+            </p>
+            <p className="text-gray-500 text-xs">
+              AI & Data Science • Loughborough University
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 
   return (
     <div className="font-sans antialiased text-gray-900">
@@ -1411,8 +1709,10 @@ export default function ProfCosmaPortfolio() {
           {currentPage === 'projects' && <ProjectsPage />}
           {currentPage === 'group' && <ResearchGroupPage />}
           {currentPage === 'outreach' && <OutreachPage />}
+          {currentPage === 'contact' && <ContactPage />}
         </>
       )}
+      <Footer />
     </div>
   );
 }
