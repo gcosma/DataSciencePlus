@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Play, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock } from 'lucide-react';
+import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Play, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock, ChevronRight, Eye, Shield, Trash2 } from 'lucide-react';
 import profileImage from './images/profile/GCosma2.jpg';
 import decodeImage from './images/projects/decode-ai.jpg';
 import isirchImage from './images/projects/isirch-ai.jpg';
@@ -11,6 +11,64 @@ export default function ProfCosmaPortfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [currentProject, setCurrentProject] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTheme, setActiveTheme] = useState(null);
+
+
+    // ADD THIS FUNCTION HERE
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Research themes data
+  const researchThemes = [
+    {
+      id: 'cross-modal',
+      title: 'Cross-Modal Information Retrieval',
+      icon: Eye,
+      gradient: 'from-blue-500 to-cyan-500',
+      keywords: ['Computer Vision', 'Natural Language Processing', 'Vision Transformers', 'CLIP', 'Neural Search'],
+      applications: ['Image Search', 'Content Discovery', 'Multimedia Retrieval', 'Digital Libraries'],
+      description: 'Pioneering neural architectures that enable AI systems to understand and retrieve information across visual and textual modalities.',
+      whatIsIt: 'Cross-modal information retrieval bridges the semantic gap between different data modalities by learning joint representations where semantically similar content from different formats (images, text, video) are positioned close together in a shared embedding space.',
+    },
+    {
+      id: 'nlp-agentic',
+      title: 'NLP & Agentic AI Systems',
+      icon: Brain,
+      gradient: 'from-purple-500 to-indigo-500',
+      keywords: ['Large Language Models', 'Autonomous Agents', 'Continual Learning', 'Machine Unlearning', 'Explainable AI'],
+      applications: ['Healthcare Analytics', 'Document Processing', 'Bias Detection', 'Decision Support'],
+      description: 'Developing autonomous AI agents that independently process, analyse, and generate insights from textual data whilst maintaining transparency and human oversight.',
+      whatIsIt: 'Agentic NLP systems are autonomous agents that combine large language models with independent decision-making capabilities, enabling complex language tasks with human-level understanding and beyond-human scalability.',
+    },
+    {
+      id: 'healthcare-ai',
+      title: 'Healthcare AI & Temporal Modelling',
+      icon: Heart,
+      gradient: 'from-red-500 to-pink-500',
+      keywords: ['Electronic Health Records', 'Temporal Modelling', 'Clinical NLP', 'Statistical ML', 'Patient Stratification'],
+      applications: ['Clinical Decision Support', 'Patient Trajectories', 'Predictive Healthcare', 'Population Health'],
+      description: 'Advanced AI systems for healthcare applications, focusing on temporal modelling of electronic health records and multimodal clinical data analysis.',
+      whatIsIt: 'Healthcare AI encompasses sophisticated systems for medical applications, focusing on temporal modelling of EHRs to capture longitudinal patient trajectories and multimodal data integration.',
+  
+    },
+    {
+      id: 'responsible-innovation',
+      title: 'Responsible AI Innovation',
+      icon: Shield,
+      gradient: 'from-green-500 to-emerald-500',
+      keywords: ['AI Ethics', 'Bias Detection', 'Healthcare Equity', 'GDPR Compliance', 'Vulnerable Populations'],
+      applications: ['Healthcare Equity', 'Public Policy', 'Social Justice', 'Regulatory Compliance'],
+      description: 'Ensuring AI systems address societal challenges ethically, fairly, and safely through bias detection, transparency, and protection of vulnerable populations.',
+      whatIsIt: 'Responsible AI innovation prioritises ethical principles, fairness, and societal benefit, addressing healthcare equity, bias detection, and regulatory compliance requirements.',
+    }
+  ];
 
   const projects = [
     {
@@ -331,7 +389,7 @@ export default function ProfCosmaPortfolio() {
           </div>
           
           <div className="hidden md:flex items-center space-x-1">
-            {['home', 'projects', 'group', 'outreach', 'contact'].map((page) => (
+            {['home', 'projects', 'topics', 'group', 'outreach', 'contact'].map((page) => (
               <button
                 key={page}
                 onClick={() => {
@@ -361,7 +419,7 @@ export default function ProfCosmaPortfolio() {
         {isMenuOpen && (
           <div className="md:hidden pb-4 border-t border-gray-200 mt-4">
             <div className="space-y-2 pt-4">
-              {['home', 'projects', 'group', 'outreach', 'contact'].map((page) => (
+              {['home', 'projects', 'topics', 'group', 'outreach', 'contact'].map((page) => (
                 <button
                   key={page}
                   onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }}
@@ -625,6 +683,219 @@ export default function ProfCosmaPortfolio() {
           })}
         </div>
       </div>
+    </div>
+  );
+
+
+  // New Research Themes Page
+  const ResearchThemesPage = () => (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
+      {/* Hero Section */}
+      <section className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-blue-200 rounded-full text-sm font-medium mb-8 shadow-lg">
+            <Brain className="w-4 h-4 mr-2 text-blue-600" />
+            <span className="text-blue-700">Neural Information Processing, Retrieval & Modelling Research Group</span>
+          </div>
+
+          <h1 className="text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
+              Advanced NLP Research
+            </span>
+            <br />
+            <span className="text-gray-900 text-4xl lg:text-5xl">Four Core Research Areas</span>
+          </h1>
+
+          <p className="text-xl text-gray-600 mb-16 max-w-5xl mx-auto leading-relaxed">
+            Advancing the frontiers of artificial intelligence through Cross-Modal Information Retrieval, 
+            Agentic NLP Systems, Healthcare AI & Temporal Modelling, and Responsible AI Innovation.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center max-w-6xl mx-auto">
+            <button 
+              onClick={() => scrollToSection('cross-modal-section')}
+              className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
+            >
+              <Eye className="w-5 h-5" />
+              Cross-Modal IR
+            </button>
+            <button 
+              onClick={() => scrollToSection('nlp-agentic-section')}
+              className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
+            >
+              <Brain className="w-5 h-5" />
+              Agentic NLP
+            </button>
+            <button 
+              onClick={() => scrollToSection('healthcare-ai-section')}
+              className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
+            >
+              <Heart className="w-5 h-5" />
+              Healthcare AI
+            </button>
+            <button 
+              onClick={() => scrollToSection('responsible-innovation-section')}
+              className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
+            >
+              <Shield className="w-5 h-5" />
+              Responsible AI
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Research Areas */}
+      <section className="relative py-32 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">Research Areas</h2>
+            <p className="text-xl text-gray-600">Four interconnected areas of advanced AI research</p>
+          </div>
+
+          <div className="space-y-8">
+            {researchThemes.map((theme, index) => {
+              const IconComponent = theme.icon;
+              const isExpanded = activeTheme === theme.id;
+              
+              return (
+                <div key={theme.id}  id={`${theme.id}-section`} className="bg-white backdrop-blur-sm border border-gray-200 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 min-h-[200px]">
+                  <div 
+                    className="p-8 cursor-pointer hover:bg-gray-50 transition-all duration-300"
+                    onClick={() => setActiveTheme(isExpanded ? null : theme.id)}
+                  >
+                    <div className="flex items-start gap-8">
+                      <div className={`w-16 h-16 lg:w-20 lg:h-20 bg-gradient-to-br ${theme.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                        <IconComponent className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+                      </div>
+                      
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-4">
+                          <h3 className="text-3xl font-bold text-gray-900">{theme.title}</h3>
+                          <ChevronRight className={`w-6 h-6 text-gray-400 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                        </div>
+                        <p className="text-gray-600 text-lg leading-relaxed mb-6">{theme.description}</p>
+                        
+                        {/* Keywords and Applications */}
+                        <div className="grid md:grid-cols-2 gap-4 mb-6">
+                          <div>
+                            <h5 className="font-semibold text-gray-800 mb-2">🔑 Key Technologies:</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {theme.keywords.map((keyword, i) => (
+                                <span key={i} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                  {keyword}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          <div>
+                            <h5 className="font-semibold text-gray-800 mb-2">🎯 Applications:</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {theme.applications.map((app, i) => (
+                                <span key={i} className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                  {app}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-6">
+                          <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200 shadow-sm">
+                            <h4 className="text-lg font-bold text-blue-700 mb-3">What is {theme.title}?</h4>
+                            <p className="text-gray-700 leading-relaxed">{theme.whatIsIt}</p>
+                          </div>
+                        
+
+                          {/* Machine Unlearning container - only for cross-modal theme */}
+                          {theme.id === 'cross-modal' && (
+                            <div className="bg-cyan-50 rounded-2xl p-6 border-l-4 border-cyan-500 border border-cyan-200 shadow-sm">
+                              <h4 className="text-lg font-bold text-cyan-700 mb-3 flex items-center gap-2">
+                                <Trash2 className="w-5 h-5" />
+                                Machine Unlearning in Cross-Modal Systems
+                              </h4>
+                              <p className="text-gray-700 leading-relaxed">
+                                Our research addresses the critical challenge of selective data removal from trained cross-modal models. 
+                                When users request data deletion (GDPR "right to be forgotten"), traditional retraining is computationally 
+                                prohibitive for large-scale cross-modal systems. We develop novel unlearning techniques that can selectively 
+                                remove specific image-text pairs from trained embeddings whilst preserving overall model performance and 
+                                cross-modal alignment quality.
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {isExpanded && (
+                    <div className="border-t border-gray-200 p-8 bg-gray-50">
+                      <div className="text-center">
+                        <p className="text-gray-600 text-lg mb-6">
+                          For detailed publications and technical specifications, please visit our{' '}
+                          <a 
+                            href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-700 font-semibold underline"
+                          >
+                            Google Scholar profile
+                          </a>{' '}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="relative py-32 px-6 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-12 shadow-2xl border border-blue-200">
+            <div className="mb-8">
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full text-sm font-medium mb-4">
+                <Users className="w-4 h-4 mr-2" />
+                Let's Collaborate
+              </div>
+              <h2 className="text-4xl font-bold mb-6 text-gray-900">Research Collaboration Opportunities</h2>
+              <p className="text-xl text-gray-600 mb-8">
+                Interested in cross-modal information retrieval, agentic NLP systems, healthcare AI & temporal modelling, or responsible AI innovation?
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="mailto:g.cosma@lboro.ac.uk"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[200px]"
+              >
+                <Mail className="w-5 h-5" />
+                Contact for Collaboration
+              </a>
+              <a 
+                href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[200px]"
+              >
+                <BookOpen className="w-5 h-5" />
+                Full Publication List
+              </a>
+              <a 
+                href="https://github.com/gcosma"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[200px]"
+              >
+                <Github className="w-5 h-5" />
+                Research Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 
@@ -984,7 +1255,7 @@ export default function ProfCosmaPortfolio() {
             </div>
           </div>
 
-          {/* Publications Timeline  */}
+  
           
           {/* Publications Timeline  */}
           {((project.pageId === 'isirch' && isirchPublications.length > 0) || project.pageId === 'decode') && (
@@ -1122,9 +1393,7 @@ export default function ProfCosmaPortfolio() {
     );
   };
 
-
-
-
+  
   const ResearchGroupPage = () => (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
       <div className="max-w-7xl mx-auto px-6 py-20">
@@ -1646,7 +1915,7 @@ export default function ProfCosmaPortfolio() {
           <div>
             <h4 className="font-semibold mb-3">Quick Links</h4>
             <div className="grid grid-cols-2 gap-2">
-              {['home', 'projects', 'group', 'outreach', 'contact'].map((page) => (
+              {['home', 'projects', 'group', 'topics', 'outreach', 'contact'].map((page) => (
                 <button
                   key={page}
                   onClick={() => {
@@ -1707,6 +1976,7 @@ export default function ProfCosmaPortfolio() {
         <>
           {currentPage === 'home' && <HomePage />}
           {currentPage === 'projects' && <ProjectsPage />}
+          {currentPage === 'topics' && <ResearchThemesPage />}
           {currentPage === 'group' && <ResearchGroupPage />}
           {currentPage === 'outreach' && <OutreachPage />}
           {currentPage === 'contact' && <ContactPage />}
