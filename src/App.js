@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Play, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock, ChevronRight, Eye, Shield, Trash2 } from 'lucide-react';
 import profileImage from './images/profile/GCosma2.jpg';
 import decodeImage from './images/projects/decode-ai.jpg';
@@ -12,6 +12,17 @@ export default function ProfCosmaPortfolio() {
   const [currentProject, setCurrentProject] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTheme, setActiveTheme] = useState(null);
+
+  // ADD THIS USEEFFECT HERE - right after your state declarations
+  useEffect(() => {
+    if (window.gtag) {
+      window.gtag('config', 'G-EJFJQWKWR9', {
+        page_title: currentPage,
+        page_path: `/${currentPage}`,
+        page_location: window.location.href
+      });
+    }
+  }, [currentPage]);
 
 
     // ADD THIS FUNCTION HERE
