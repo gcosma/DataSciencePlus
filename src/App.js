@@ -7,6 +7,7 @@ import themisImage from './images/projects/themis-ai.jpg';
 import personImage from './images/team-members/person.jpg';
 import svgcKtpImage from './images/projects/svgc-ktp.svg';
 
+
 export default function ProfCosmaPortfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [currentProject, setCurrentProject] = useState(null);
@@ -76,8 +77,8 @@ export default function ProfCosmaPortfolio() {
       gradient: 'from-green-500 to-emerald-500',
       keywords: ['AI Ethics', 'Bias Detection', 'Healthcare Equity', 'GDPR Compliance', 'Vulnerable Populations'],
       applications: ['Healthcare Equity', 'Public Policy', 'Social Justice', 'Regulatory Compliance'],
-      description: 'Ensuring AI systems address societal challenges ethically, fairly, and safely through bias detection, transparency, and protection of vulnerable populations.',
-      whatIsIt: 'Responsible AI innovation prioritises ethical principles, fairness, and societal benefit, addressing healthcare equity, bias detection, and regulatory compliance requirements.',
+      description: 'A foundational principle embedded across all our projects - ensuring AI systems address societal challenges ethically, fairly, and safely through bias detection, transparency, and protection of vulnerable populations.',
+      whatIsIt: 'Responsible AI innovation is integral to every project we undertake, prioritising ethical principles, fairness, and societal benefit while addressing healthcare equity, bias detection, and regulatory compliance requirements across all our work.',
     }
   ];
 
@@ -299,6 +300,14 @@ const teamMembers = [
       type: "research_alumni", 
       image: personImage
     },
+        {
+      name: "Dr Aboozar Taherkhani",
+      position: "Senior Lecturer, Demontfort University",
+      specialisation: "Machine Learning & Spiking Neural Networks",
+      previousRole: "Leverhulme Research Fellow - Multi-modal Neural Learning",
+      type: "research_alumni", 
+      image: personImage
+    },
 
     // =============================================================================
     // ALUMNI - PhD GRADUATES
@@ -407,7 +416,7 @@ const teamMembers = [
           </div>
           
           <div className="hidden md:flex items-center space-x-1">
-            {['home', 'projects', 'topics', 'group', 'outreach', 'contact'].map((page) => (
+            {['home', 'projects', 'topics', 'group', 'grants', 'outreach', 'contact'].map((page) => (
               <button
                 key={page}
                 onClick={() => {
@@ -443,7 +452,9 @@ const teamMembers = [
                   onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }}
                   className="block w-full text-left px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 capitalize"
                 >
-                  {page === 'group' ? 'Research Group' : page === 'outreach' ? 'Outreach' : page}
+                  {page === 'group' ? 'Research Group' : 
+                  page === 'outreach' ? 'Outreach' : 
+                  page === 'grants' ? 'Grant Capture' : page}
                 </button>
               ))}
             </div>
@@ -453,12 +464,296 @@ const teamMembers = [
     </nav>
   );
 
-  const HomePage = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
-      <section className="relative py-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100"></div>
+const GrantCapturePage = () => {
+  const fundingEvents = [
+    {
+      year: "2023-2027",
+      type: "Principal Investigator",
+      title: "Developing AI-based tools for Vehicle Condition Monitoring and Maintenance",
+      funder: "Royal Air Force (RAF)",
+      amount: "£148k",
+      description: "AI-based tools for vehicle condition monitoring and maintenance. PhD student: Sebastian Cheshire.",
+      color: "blue"
+    },
+    {
+      year: "2023-2025",
+      type: "Principal Investigator", 
+      title: "KTP project on intelligent SENSE software tool for Government departments",
+      funder: "UKRI",
+      amount: "£199k",
+      description: "Knowledge Transfer Partnership with SVGC technologies. Research Associate: Daniel Blake.",
+      color: "emerald"
+    },
+    {
+      year: "2022",
+      type: "Principal Investigator",
+      title: "Research Consultancy via Loughborough University",
+      funder: "Industry Partner",
+      amount: "~£7k",
+      description: "Research consultancy services through Loughborough University.",
+      color: "gray"
+    },
+    {
+      year: "2022-2025",
+      type: "Co-Investigator",
+      title: "DECODE: Data-driven machinE-learning aided stratification management of multiple long-term COnditions",
+      funder: "NIHR",
+      amount: "£2.8M total (£748k to School of Science)",
+      description: "Large-scale healthcare AI project for adults with intellectual disabilities. PI: Dr Thomas Jun. Research Associates: Dr Rania Kousovista and Dr Emeka Raphael.",
+      color: "purple"
+    },
+    {
+      year: "2022-2024",
+      type: "Joint Principal Investigator",
+      title: "I-SIRch: Using AI to improve investigation of adverse maternity incidents involving black mothers and families",
+      funder: "THF/NIHR", 
+      amount: "£180k total (£110k to School of Science)",
+      description: "AI for healthcare equity in maternity care. Joint-PI with Professor Patrick Waterson. Research Associate: Dr Mohit Kumar.",
+      color: "rose"
+    },
+    {
+      year: "2022-2023",
+      type: "Principal Investigator",
+      title: "Themis.AI: Identifying Early Help Referrals for Local Authorities with Machine Learning and Bias Analysis",
+      funder: "Loughborough EPG & Leicestershire County Council",
+      amount: "£75k",
+      description: "Ethical AI for local government early intervention. Co-lead: Dr Axel Finke. Research Associate: Dr Eufrasio Lima Neto.",
+      color: "indigo"
+    },
+    {
+      year: "2020-2023",
+      type: "Principal Investigator",
+      title: "Defect Detection on Wind Turbine Surfaces using AI",
+      funder: "Railston & Co Ltd (jointly funded with LU)",
+      amount: "£80k",
+      description: "AI for renewable energy infrastructure. PhD student: Clifford Zhang. Featured in national engineering media.",
+      color: "amber"
+    },
+    {
+      year: "2020-2023",
+      type: "Principal Investigator", 
+      title: "Responsible and Explainable AI in healthcare with focus on military and healthcare patient data",
+      funder: "Academic Department of Military Rehabilitation (ADMR)",
+      amount: "£20k",
+      description: "Focus on military and healthcare patient data. PhD student: Andrew Houston.",
+      color: "cyan"
+    },
+    {
+      year: "2019-2022",
+      type: "Co-Investigator",
+      title: "Managing Affective-learning Through Intelligent Atoms and Smart InteractionS (MATHISIS)",
+      funder: "European Commission H2020",
+      amount: "£467k",
+      description: "Large-scale EU project on intelligent learning systems. Research Associate: M. Taheri.",
+      color: "green"
+    },
+    {
+      year: "2018-2019",
+      type: "Co-Investigator",
+      title: "Gender Recognition Act Consultancy",
+      funder: "Government Equality Office",
+      amount: "£24k",
+      description: "Government research/consultancy project. Research Associates: S. Salesi and O. Oloruntoba.",
+      color: "violet"
+    },
+    {
+      year: "2018-2019",
+      type: "Principal Investigator",
+      title: "Gender Recognition Act Consultancy (QR funds)",
+      funder: "Government Equality Office",
+      amount: "£12k",
+      description: "Additional QR-funded research. Research Associates: S. Salesi and O. Oloruntoba.",
+      color: "violet"
+    },
+    {
+      year: "2018-2019",
+      type: "Principal Investigator",
+      title: "Design and development of an instant messaging mobile app",
+      funder: "Nottingham Business School",
+      amount: "£10k",
+      description: "Mobile app development project. Research Associate: T. Thomas.",
+      color: "blue"
+    },
+    {
+      year: "2018-2019",
+      type: "Co-Investigator",
+      title: "Prostate cancer blood data collection and data preparation",
+      funder: "NTU Health and wellbeing funds",
+      amount: "£15k",
+      description: "Healthcare data project. Research Associate: Dr Simon Hood.",
+      color: "teal"
+    },
+    {
+      year: "2018-2019",
+      type: "Principal Investigator",
+      title: "AI-based welding defect detection system (x-ray images and other data)",
+      funder: "Laser Optical Engineering ltd",
+      amount: "£20k",
+      description: "Industrial AI application. Research Associates: S. Salesi and T. Thomas.",
+      color: "orange"
+    },
+    {
+      year: "2018-2019",
+      type: "Principal Investigator",
+      title: "AI-based multi-modal biometrics system",
+      funder: "Secure Socialising Ltd (Enabling Innovation fund)",
+      amount: "£10k",
+      description: "Biometric systems research. Research Associate: B. Pandya.",
+      color: "pink"
+    },
+    {
+      year: "2017-2018",
+      type: "Principal Investigator",
+      title: "AI-based system for coding medical records",
+      funder: "Health and Wellbeing grant (Care IS ltd)",
+      amount: "£20k",
+      description: "Healthcare AI system. Research Associates: D. Nagades Carlon and G. Vourgides.",
+      color: "emerald"
+    },
+    {
+      year: "2016-2019",
+      type: "Principal Investigator",
+      title: "Novel Approaches for Constructing Optimised Multimodal Data Spaces",
+      funder: "The Leverhulme Trust (RPG)",
+      amount: "£115k",
+      description: "Fundamental research in multimodal AI. Research Fellow: Dr A. Taherkhani.",
+      color: "purple"
+    },
+    {
+      year: "2015-2016",
+      type: "Co-Investigator",
+      title: "Barriers & Inequalities: Towards a Better Understanding of Poor Prognostic Outcomes for Prostate Cancer in the African-Caribbean Community",
+      funder: "Nottingham City Clinical Commissioning Group (NCCG)",
+      amount: "£48k",
+      description: "Healthcare equity research in the African-Caribbean community.",
+      color: "teal"
+    }
+  ];
 
-        <div className="relative max-w-7xl mx-auto px-6 py-32">
+  const getColorClasses = (color) => {
+    const colors = {
+      emerald: { bg: "bg-emerald-500", badge: "bg-emerald-100 text-emerald-800", glow: "shadow-emerald-200" },
+      blue: { bg: "bg-blue-500", badge: "bg-blue-100 text-blue-800", glow: "shadow-blue-200" },
+      purple: { bg: "bg-purple-500", badge: "bg-purple-100 text-purple-800", glow: "shadow-purple-200" },
+      rose: { bg: "bg-rose-500", badge: "bg-rose-100 text-rose-800", glow: "shadow-rose-200" },
+      indigo: { bg: "bg-indigo-500", badge: "bg-indigo-100 text-indigo-800", glow: "shadow-indigo-200" },
+      amber: { bg: "bg-amber-500", badge: "bg-amber-100 text-amber-800", glow: "shadow-amber-200" },
+      cyan: { bg: "bg-cyan-500", badge: "bg-cyan-100 text-cyan-800", glow: "shadow-cyan-200" },
+      green: { bg: "bg-green-500", badge: "bg-green-100 text-green-800", glow: "shadow-green-200" },
+      violet: { bg: "bg-violet-500", badge: "bg-violet-100 text-violet-800", glow: "shadow-violet-200" },
+      orange: { bg: "bg-orange-500", badge: "bg-orange-100 text-orange-800", glow: "shadow-orange-200" },
+      teal: { bg: "bg-teal-500", badge: "bg-teal-100 text-teal-800", glow: "shadow-teal-200" },
+      pink: { bg: "bg-pink-500", badge: "bg-pink-100 text-pink-800", glow: "shadow-pink-200" },
+      gray: { bg: "bg-gray-500", badge: "bg-gray-100 text-gray-800", glow: "shadow-gray-200" }
+    };
+    return colors[color] || colors.blue;
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        {/* Header Section */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center px-6 py-3 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-blue-600 mb-8 shadow-lg border border-blue-100">
+            <Award className="w-4 h-4 mr-2" />
+            Research Funding Portfolio
+          </div>
+          <h1 className="text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Grant Capture
+            </span>
+            <br />
+            <span className="text-gray-900 text-4xl lg:text-5xl">Timeline</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            External funding trajectory.
+          </p>
+        </div>
+
+        {/* Funding Timeline */}
+        <section className="mb-20">
+          <div className="relative">
+            {/* Enhanced Timeline line with gradient */}
+            <div className="absolute left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-emerald-500 rounded-full shadow-lg"></div>
+            
+            {/* Floating timeline dots */}
+            <div className="absolute left-6 top-0 bottom-0">
+              {fundingEvents.map((_, index) => (
+                <div 
+                  key={index} 
+                  className="absolute w-8 h-8 bg-white rounded-full shadow-lg border-4 border-blue-300"
+                  style={{ top: `${(index * 100) / (fundingEvents.length - 1)}%` }}
+                ></div>
+              ))}
+            </div>
+            
+            <div className="space-y-12 pl-4">
+              {fundingEvents.map((grant, index) => {
+                const colorClasses = getColorClasses(grant.color);
+                
+                return (
+                  <div key={index} className="relative flex items-start gap-12">
+                    {/* Enhanced Timeline dot */}
+                    <div className={`relative z-10 w-20 h-20 rounded-2xl flex items-center justify-center shadow-2xl ${colorClasses.bg} ${colorClasses.glow} transform hover:scale-110 transition-all duration-300 rotate-3 hover:rotate-0`}>
+                      <Award className="w-10 h-10 text-white" />
+                      <div className="absolute -inset-1 bg-gradient-to-r from-white/20 to-transparent rounded-2xl"></div>
+                    </div>
+                    
+                    {/* Enhanced Content card */}
+                    <div className="flex-1 group">
+                      <div className="relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200 transform hover:-translate-y-2">
+                        {/* Card decoration */}
+                        <div className={`absolute top-0 left-0 w-20 h-1 ${colorClasses.bg} rounded-full`}></div>
+                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        
+                        <div className="flex flex-wrap items-center gap-3 mb-6">
+                          <div className={`px-4 py-2 rounded-full text-sm font-semibold ${colorClasses.badge} shadow-sm`}>
+                            <Calendar className="w-4 h-4 inline mr-2" />
+                            {grant.year}
+                          </div>
+                          <div className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">
+                            {grant.type}
+                          </div>
+                          <div className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">
+                            {grant.amount}
+                          </div>
+                        </div>
+                        
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                          {grant.title}
+                        </h3>
+                        
+                        <div className="mb-4">
+                          <p className="text-gray-700 font-medium text-lg mb-2">
+                            <span className="font-semibold">Funder:</span> {grant.funder}
+                          </p>
+                        </div>
+                        
+                        <p className="text-gray-600 leading-relaxed text-base">
+                          {grant.description}
+                        </p>
+                        
+                        {/* Hover effect decoration */}
+                        <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500 rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+
+const HomePage = () => (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
+      {/* Hero Section */}
+      <section className="relative py-20 px-6">
+        <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-blue-600 mb-8 shadow-lg">
@@ -479,23 +774,6 @@ const teamMembers = [
                 and Responsible AI at Loughborough University.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <button 
-                  onClick={() => setCurrentPage('projects')}
-                  className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl transform hover:scale-105"
-                >
-                  Explore Research Projects
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button 
-                  onClick={() => setCurrentPage('group')}
-                  className="bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl border border-gray-200"
-                >
-                  <Users className="w-5 h-5" />
-                  Meet My Team
-                </button>
-              </div>
-
               <div className="flex justify-center lg:justify-start gap-4">
                 <a href="https://github.com/gcosma" target="_blank" rel="noopener noreferrer" className="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                   <Github className="w-6 h-6 text-gray-700 group-hover:text-blue-600" />
@@ -503,7 +781,7 @@ const teamMembers = [
                 <a href="https://www.linkedin.com/in/georginacosma/" target="_blank" rel="noopener noreferrer" className="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                   <Linkedin className="w-6 h-6 text-gray-700 group-hover:text-blue-600" />
                 </a>
-                <a href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+                <a href="https://scholar.google.co.uk/citations?hl=en&user=OpHkDDIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer" className="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                   <BookOpen className="w-6 h-6 text-gray-700 group-hover:text-blue-600" />
                 </a>
                 <a href="mailto:g.cosma@lboro.ac.uk" className="group p-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
@@ -547,49 +825,70 @@ const teamMembers = [
               <p className="text-lg text-gray-700 leading-relaxed">
                 My academic journey began with a PhD in Computer Science from the University of Warwick, specialising 
                 in intelligent information retrieval. Since then, I have built a research programme that spans neural 
-                information retrieval, computational intelligence, and responsible AI development.
+                information retrieval, computational intelligence, and responsible AI development. 
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+In addition to my research, I teach the Natural Language Processing (NLP) module to MSc Artificial Intelligence and MSc Advanced Computer Science students, focusing on foundational 
+and state-of-the-art topics including vector space models, information retrieval, large language models (LLMs), and their applications.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 What drives my research is the conviction that AI must serve humanity responsibly. I work on projects 
                 that address real societal challenges—from healthcare inequalities to supporting vulnerable populations. 
-                My current research portfolio includes major NIHR-funded projects worth over £3 million.
               </p>
             </div>
             
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-2xl">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
-                  <GraduationCap className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">Academic Excellence</h3>
-                <p className="text-gray-600 text-sm">Leading research group with distinguished publication record</p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-2xl">
-                <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">Grant Leadership</h3>
-                <p className="text-gray-600 text-sm">Principal and co- investigator on externally funded projects</p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-green-50 to-emerald-100 p-6 rounded-2xl">
-                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
-                  <Heart className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">Social Impact</h3>
-                <p className="text-gray-600 text-sm">Addressing healthcare inequalities through responsible AI</p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-orange-50 to-red-100 p-6 rounded-2xl">
-                <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">Community Service</h3>
-                <p className="text-gray-600 text-sm">Active reviewer for EPSRC and other funding bodies</p>
-              </div>
-            </div>
+<div className="grid grid-cols-2 gap-6">
+  <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-2xl">
+    <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+      <GraduationCap className="w-6 h-6 text-white" />
+    </div>
+    <h3 className="font-bold text-gray-900 mb-2">Academic Excellence</h3>
+    <p className="text-gray-600 text-sm">Leading research group with distinguished publication record</p>
+  </div>
+  
+  <div className="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-2xl">
+    <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
+      <Award className="w-6 h-6 text-white" />
+    </div>
+    <h3 className="font-bold text-gray-900 mb-2">Grant Leadership</h3>
+    <p className="text-gray-600 text-sm">Principal and co- investigator on externally funded projects</p>
+  </div>
+  
+  <div className="bg-gradient-to-br from-green-50 to-emerald-100 p-6 rounded-2xl">
+    <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mb-4">
+      <Heart className="w-6 h-6 text-white" />
+    </div>
+    <h3 className="font-bold text-gray-900 mb-2">Social Impact</h3>
+    <p className="text-gray-600 text-sm">Addressing healthcare inequalities through responsible AI</p>
+  </div>
+  
+  <div className="bg-gradient-to-br from-orange-50 to-red-100 p-6 rounded-2xl">
+    <div className="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center mb-4">
+      <Users className="w-6 h-6 text-white" />
+    </div>
+    <h3 className="font-bold text-gray-900 mb-2">Community Service</h3>
+    <p className="text-gray-600 text-sm">Active reviewer for EPSRC and other funding bodies. Associate Editor of Elsevier Pattern Recognition</p>
+  </div>
+  
+  <div className="bg-gradient-to-br from-amber-50 to-yellow-100 p-6 rounded-2xl">
+    <div className="w-12 h-12 bg-amber-600 rounded-xl flex items-center justify-center mb-4">
+      <Globe className="w-6 h-6 text-white" />
+    </div>
+    <h3 className="font-bold text-gray-900 mb-2">Government Partnerships</h3>
+    <p className="text-gray-600 text-sm"> Collaborations with NHS trusts and local authorities</p>
+  </div>
+  
+  <div className="bg-gradient-to-br from-cyan-50 to-blue-100 p-6 rounded-2xl">
+    <div className="w-12 h-12 bg-cyan-600 rounded-xl flex items-center justify-center mb-4">
+      <Target className="w-6 h-6 text-white" />
+    </div>
+    <h3 className="font-bold text-gray-900 mb-2">Industry Innovation</h3>
+    <p className="text-gray-600 text-sm">Strategic partnerships with industry leaders</p>
+  </div>
+</div>
           </div>
+
+
 {/* ADD YOUR ENHANCED EXPERTISE SECTION HERE */}
     <div className="mt-20">
       <div className="text-center mb-12">
@@ -607,7 +906,7 @@ const teamMembers = [
               </div>
               <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-20"></div>
             </div>
-            <span className="text-gray-800 font-medium group-hover:text-blue-700 transition-colors">Cross-Modal Information Retrieval</span>
+            <span className="text-gray-800 font-medium group-hover:text-blue-700 transition-colors">Natural Language Processing & Large Language Models</span>
           </div>
 
           <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
@@ -617,7 +916,7 @@ const teamMembers = [
               </div>
               <div className="absolute inset-0 bg-indigo-400 rounded-full animate-ping opacity-20"></div>
             </div>
-            <span className="text-gray-800 font-medium group-hover:text-indigo-700 transition-colors">Neural Machine Unlearning</span>
+            <span className="text-gray-800 font-medium group-hover:text-indigo-700 transition-colors">Cross-Modal Information Retrieval</span>
           </div>
 
           <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
@@ -627,7 +926,7 @@ const teamMembers = [
               </div>
               <div className="absolute inset-0 bg-purple-400 rounded-full animate-ping opacity-20"></div>
             </div>
-            <span className="text-gray-800 font-medium group-hover:text-purple-700 transition-colors">Healthcare AI & Temporal Modelling</span>
+            <span className="text-gray-800 font-medium group-hover:text-purple-700 transition-colors">Neural Machine Unlearning</span>
           </div>
 
           <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
@@ -637,7 +936,7 @@ const teamMembers = [
               </div>
               <div className="absolute inset-0 bg-emerald-400 rounded-full animate-ping opacity-20"></div>
             </div>
-            <span className="text-gray-800 font-medium group-hover:text-emerald-700 transition-colors">Responsible AI & Ethics</span>
+            <span className="text-gray-800 font-medium group-hover:text-emerald-700 transition-colors">Healthcare AI & Temporal Modelling</span>
           </div>
 
           <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
@@ -647,7 +946,7 @@ const teamMembers = [
               </div>
               <div className="absolute inset-0 bg-rose-400 rounded-full animate-ping opacity-20"></div>
             </div>
-            <span className="text-gray-800 font-medium group-hover:text-rose-700 transition-colors">Agentic NLP Systems</span>
+            <span className="text-gray-800 font-medium group-hover:text-rose-700 transition-colors">Agentic AI Systems</span>
           </div>
 
           <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
@@ -657,7 +956,7 @@ const teamMembers = [
               </div>
               <div className="absolute inset-0 bg-amber-400 rounded-full animate-ping opacity-20"></div>
             </div>
-            <span className="text-gray-800 font-medium group-hover:text-amber-700 transition-colors">Bias Detection & Mitigation</span>
+            <span className="text-gray-800 font-medium group-hover:text-amber-700 transition-colors">Responsible AI & Ethics</span>
           </div>
 
         </div>
@@ -889,7 +1188,6 @@ const ProjectsPage = () => (
             <br />
             <span className="text-gray-900 text-4xl lg:text-5xl">Four Core Research Areas</span>
           </h1>
-
           <p className="text-xl text-gray-600 mb-16 max-w-5xl mx-auto leading-relaxed">
             Advancing the frontiers of artificial intelligence through Cross-Modal Information Retrieval, 
             Agentic NLP Systems, Healthcare AI & Temporal Modelling, and Responsible AI Innovation.
@@ -1012,7 +1310,7 @@ const ProjectsPage = () => (
                         <p className="text-gray-600 text-lg mb-6">
                           For detailed publications and technical specifications, please visit our{' '}
                           <a 
-                            href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en"
+                            href="https://scholar.google.co.uk/citations?hl=en&user=OpHkDDIAAAAJ&view_op=list_works&sortby=pubdate"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:text-blue-700 font-semibold underline"
@@ -1054,7 +1352,7 @@ const ProjectsPage = () => (
                 Contact for Collaboration
               </a>
               <a 
-                href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en"
+                href="https://scholar.google.co.uk/citations?hl=en&user=OpHkDDIAAAAJ&view_op=list_works&sortby=pubdate"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[200px]"
@@ -1307,7 +1605,7 @@ const ProjectsPage = () => (
                         <li><strong>Intelligent Document Clustering:</strong> Semantic similarity-based grouping and thematic organisation</li>
                         <li><strong>Advanced Topic Modelling:</strong> Multiple vectorisation methods (TF-IDF, BM25, weighted schemes) for pattern discovery</li>
                         <li><strong>Generative Summarisation:</strong> AI-powered cluster summaries and extractive text analysis</li>
-                        <li><strong>Healthcare-Specific Annotation:</strong> Bio_ClinicalBERT for medical concept identification</li>
+                        <li><strong>Healthcare-Specific Annotation:</strong> ClinicalBERT for medical concept identification</li>
                         <li><strong>Multi-Framework Analysis:</strong> Theme identification across I-SIRCh, House of Commons, and custom frameworks</li>
                         <li><strong>Interactive Dashboards:</strong> Comprehensive visualisation with correlation analysis and temporal trends</li>
                       </ul>
@@ -1318,6 +1616,28 @@ const ProjectsPage = () => (
                   </div>
                 )}
                 
+                {/* ADD THIS THEMIS PUBLICATION CODE RIGHT HERE */}
+                {project.pageId === 'themis' && (
+                  <div className="bg-gradient-to-r from-orange-50 to-red-50 border-l-4 border-orange-400 p-6 rounded-lg mb-8">
+                    <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <BookOpen className="w-5 h-5 text-orange-600" />
+                      Related Publication
+                    </h4>
+                    <p className="text-gray-700 mb-4">
+                      Read our comprehensive research paper on ethical AI frameworks for local government applications.
+                    </p>
+                    <a 
+                      href="https://link.springer.com/article/10.1007/s42001-023-00242-7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-2 text-orange-600 hover:text-orange-700 font-semibold transition-colors"
+                    >
+                      View on Springer
+                      <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    </a>
+                  </div>
+                )}
+
                 <div className="mb-6">
                   <h4 className="font-semibold text-gray-900 mb-3">My Role: {project.role}</h4>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -1350,8 +1670,11 @@ const ProjectsPage = () => (
       alt="Themis.AI Ethical AI System"
       className="w-full h-80 object-cover rounded-3xl shadow-lg"
     />
-    <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
+    <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
       <span className="text-sm font-semibold text-gray-700">{project.category}</span>
+    </div>
+    <div className="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-lg mt-4">
+      <p className="text-center text-base text-emerald-800 font-medium">We are seeking partnerships with government departments and public sector organisations for AI implementation.</p>
     </div>
   </div>
 )}
@@ -1362,10 +1685,10 @@ const ProjectsPage = () => (
     <img 
       src={svgcKtpImage}
       alt="SVGC KTP Document Deduplication System"
-      className="w-full h-80 object-cover rounded-3xl shadow-lg"
+      className="w-full h-80 object-contain rounded-3xl shadow-lg"
     />
-    <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
-      <span className="text-sm font-semibold text-gray-700">{project.category}</span>
+    <div className="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-lg mt-4">
+      <p className="text-center text-base text-emerald-800 font-medium">Seeking collaboration with organisations who are seeking solutions in document processing, modelling and retrieval.</p>
     </div>
   </div>
 )}
@@ -1389,6 +1712,12 @@ const ProjectsPage = () => (
                         )}
                       </div>
                     ))}
+                    {/* ADD THIS FOR i-SIRCH */}
+                {project.pageId === 'isirch' && (
+                  <div className="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-lg mt-4">
+                    <p className="text-center text-base text-emerald-800 font-medium">If you are interested in exploring our software for extracting and analysing PfD reports, please get in touch.</p>
+                  </div>
+                )}
                   </div>
                 ) : project.hasVideo && project.youtubeId ? (
                   <div className="relative mt-24">
@@ -1422,7 +1751,7 @@ const ProjectsPage = () => (
                       <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
                         <span className="text-sm font-semibold text-gray-700">{project.category}</span>
                       </div>
-                      <div className="absolute bottom-6 right-6 bg-white p-4 rounded-2xl shadow-lg">
+                      <div className="absolute top-6 right-6 bg-white p-4 rounded-2xl shadow-lg">
                         <IconComponent className="w-8 h-8 text-gray-700" />
                       </div>
                     </div>
@@ -1847,21 +2176,24 @@ const ResearchGroupPage = () => (
                   healthcare AI, and responsible AI development.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a 
-                    href="mailto:g.cosma@lboro.ac.uk" 
-                    className="group bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
-                  >
-                    <Mail className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-                    Contact for PhD Opportunities
-                  </a>
-                  <button 
-                    onClick={() => setCurrentPage('projects')}
-                    className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
-                  >
-                    <ExternalLink className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                    Explore Our Research
-                  </button>
-                </div>
+              <a 
+                href="mailto:g.cosma@lboro.ac.uk" 
+                className="group bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
+              >
+                <Mail className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+                Contact for PhD Opportunities
+              </a>
+              <button 
+                onClick={() => setCurrentPage('projects')}
+                className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
+              >
+                <ExternalLink className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                Explore Our Research
+              </button>
+            </div>
+            <p className="text-center text-blue-100 text-sm mt-4 italic">
+              Note: No funded PhD positions are currently available
+            </p>
               </div>
             </div>
           </section>
@@ -2009,9 +2341,12 @@ const ResearchGroupPage = () => (
               <Globe className="w-4 h-4 mr-2" />
               Professional Outreach & Education
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Outreach & Course Delivery
-            </h1>
+            </span>
+          </h1>
+
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Sharing research and knowledge through conferences, workshops, training sessions, and community engagement activities.
             </p>
@@ -2125,9 +2460,11 @@ const ResearchGroupPage = () => (
           <Mail className="w-4 h-4 mr-2" />
           Get in Touch
         </div>
-        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
-          Contact Details
-        </h1>
+     <h1 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Contact Details
+            </span>
+          </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
           I welcome collaborations, research discussions, and opportunities to share knowledge about AI, data science, and ethical technology development.
         </p>
@@ -2199,7 +2536,7 @@ const ResearchGroupPage = () => (
             <Linkedin className="w-8 h-8 text-gray-700 group-hover:text-blue-600 transition-colors" />
           </a>
           <a 
-            href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en" 
+            href="https://scholar.google.co.uk/citations?hl=en&user=OpHkDDIAAAAJ&view_op=list_works&sortby=pubdate" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="group p-6 bg-gray-50 hover:bg-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
@@ -2265,7 +2602,7 @@ const ResearchGroupPage = () => (
                 className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="https://scholar.google.co.uk/citations?user=OpHkDDIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
+              <a href="https://scholar.google.co.uk/citations?hl=en&user=OpHkDDIAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer"
                 className="p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors">
                 <BookOpen className="w-4 h-4" />
               </a>
@@ -2276,7 +2613,7 @@ const ResearchGroupPage = () => (
           <div>
             <h4 className="font-semibold mb-3">Quick Links</h4>
             <div className="grid grid-cols-2 gap-2">
-              {['home', 'projects', 'group', 'topics', 'outreach', 'contact'].map((page) => (
+              {['home', 'projects', 'group', 'grants', 'topics', 'outreach', 'contact'].map((page) => (
                 <button
                   key={page}
                   onClick={() => {
@@ -2339,6 +2676,7 @@ const ResearchGroupPage = () => (
           {currentPage === 'projects' && <ProjectsPage />}
           {currentPage === 'topics' && <ResearchThemesPage />}
           {currentPage === 'group' && <ResearchGroupPage />}
+          {currentPage === 'grants' && <GrantCapturePage />}
           {currentPage === 'outreach' && <OutreachPage />}
           {currentPage === 'contact' && <ContactPage />}
         </>
