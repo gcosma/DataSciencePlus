@@ -2206,7 +2206,7 @@ const ResearchGroupPage = () => (
         date: "June 2025",
         title: "HealTac Conference Poster Presentation",
         type: "Conference Presentation",
-        description: "Presented research poster at the HealTac conference, What do Prevention of Future Death Reports tell us about maternity care in UK hospitals?.",
+        description: "Presented research poster at the HealTac conference, What do Prevention of Future Death Reports tell us about maternity care in UK hospitals?",
         status: "completed",
         icon: Award,
         color: "emerald"
