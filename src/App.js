@@ -2296,7 +2296,7 @@ const ResearchGroupPage = () => (
         date: "October 2022",
         title: "Royal Statistical Society AI Course",
         type: "Course Delivery",
-        description: "Delivered 20-hour course on Ethics and Governance in AI via the Royal Statistical Society.",
+        description: "Delivered 20-hour courses on Ethics and Governance in AI via the Royal Statistical Society.",
         status: "completed",
         icon: BookOpen,
         color: "pink"
