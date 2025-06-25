@@ -227,7 +227,7 @@ const teamMembers = [
       name: "Mikel Williams",
       position: "PhD Student in Information Retrieval",
       specialisation: "Neural Information Retrieval with cross-modal knowledge transfer",
-      funder: "Self-funded",
+      funder: "self-funded",
       startDate: "July 2021",
       type: "phd",
       status: "current",
@@ -238,7 +238,7 @@ const teamMembers = [
       position: "PhD Student in neural machine unlearning",
       specialisation: "Selective Forgetting for Large Language Models",
       funder: "self-funded",
-      startDate: "TBC",
+      startDate: "October 2024 (PT-mode)",
       type: "phd",
       status: "current",
       image: personImage
@@ -454,8 +454,8 @@ const teamMembers = [
   );
 
   const HomePage = () => (
-    <div className="min-h-screen">
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
+      <section className="relative py-32 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100"></div>
 
         <div className="relative max-w-7xl mx-auto px-6 py-32">
@@ -669,22 +669,70 @@ const teamMembers = [
     </div>
   );
 
-  const ProjectsPage = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-20">
-          <h1 className="text-5xl font-bold text-gray-900 mb-8">Current Research Projects</h1>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Leading innovative research projects at the intersection of artificial intelligence, healthcare, 
-            and social justice. Each project represents a significant contribution to responsible AI development.
-          </p>
+const ProjectsPage = () => (
+  <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
+    {/* Hero Section */}
+    <section className="relative py-32 px-6">
+      <div className="max-w-7xl mx-auto text-center">
+        <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-blue-200 rounded-full text-sm font-medium mb-8 shadow-lg">
+          <Target className="w-4 h-4 mr-2 text-blue-600" />
+          <span className="text-blue-700">Current Research Portfolio</span>
         </div>
 
+        <h1 className="text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+          <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">
+            Research Projects
+          </span>
+          <br />
+          <span className="text-gray-900 text-4xl lg:text-5xl">Driving Innovation in AI</span>
+        </h1>
+
+        <p className="text-xl text-gray-600 mb-16 max-w-5xl mx-auto leading-relaxed">
+          Leading innovative research projects at the intersection of artificial intelligence, healthcare, 
+          and social justice. Each project represents a significant contribution to responsible AI development.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center max-w-6xl mx-auto">
+          <button 
+            onClick={() => scrollToSection('decode-section')}
+            className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
+          >
+            <Heart className="w-5 h-5" />
+            DECODE
+          </button>
+          <button 
+            onClick={() => scrollToSection('isirch-section')}
+            className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
+          >
+            <Target className="w-5 h-5" />
+            I-SIRCh
+          </button>
+          <button 
+            onClick={() => scrollToSection('themis-section')}
+            className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
+          >
+            <Brain className="w-5 h-5" />
+            Themis.AI
+          </button>
+          <button 
+            onClick={() => scrollToSection('svgc-ktp-section')}
+            className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
+          >
+            <Target className="w-5 h-5" />
+            KTP SVGC
+          </button>
+        </div>
+      </div>
+    </section>
+
+    {/* Research Projects */}
+    <section className="relative py-32 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
         <div className="space-y-16">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
-              <div key={project.id} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+              <div key={project.id} id={`${project.pageId}-section`} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="relative group">
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-75 rounded-3xl`}></div>
@@ -743,7 +791,7 @@ const teamMembers = [
                         <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
                         View Project Details
                       </button>
-                    {project.github && (
+                      {project.github && (
                         <a 
                           href={project.github}
                           target="_blank"
@@ -754,8 +802,7 @@ const teamMembers = [
                           View on GitHub
                         </a>
                       )}
-
-                    {project.osf && (
+                      {project.osf && (
                         <a 
                           href={project.osf}
                           target="_blank"
@@ -766,8 +813,7 @@ const teamMembers = [
                           View on OSF
                         </a>
                       )}
-
-                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -775,8 +821,54 @@ const teamMembers = [
           })}
         </div>
       </div>
-    </div>
-  );
+    </section>
+
+    {/* Call to Action */}
+    <section className="relative py-32 px-6 bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl p-12 shadow-2xl border border-blue-200">
+          <div className="mb-8">
+            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full text-sm font-medium mb-4">
+              <Users className="w-4 h-4 mr-2" />
+              Research Collaboration
+            </div>
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">Interested in Our Research?</h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Explore opportunities for collaboration, funding partnerships, or academic exchange in AI and data science research.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="mailto:g.cosma@lboro.ac.uk"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[200px]"
+            >
+              <Mail className="w-5 h-5" />
+              Contact for Collaboration
+            </a>
+            <button 
+              onClick={() => setCurrentPage('topics')}
+              className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[200px]"
+            >
+              <Eye className="w-5 h-5" />
+              Explore Research Areas
+            </button>
+            <a 
+              href="https://github.com/gcosma"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 justify-center text-white shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[200px]"
+            >
+              <Github className="w-5 h-5" />
+              Research Code
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+);
+
 
 
   // New Research Themes Page
@@ -839,11 +931,6 @@ const teamMembers = [
       {/* Research Areas */}
       <section className="relative py-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">Research Areas</h2>
-            <p className="text-xl text-gray-600">Four interconnected areas of advanced AI research</p>
-          </div>
-
           <div className="space-y-8">
             {researchThemes.map((theme, index) => {
               const IconComponent = theme.icon;
@@ -1518,260 +1605,268 @@ const teamMembers = [
   
 const ResearchGroupPage = () => (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
-      <div className="max-w-7xl mx-auto px-6 py-20">
-        {/* Enhanced Header Section */}
-        <div className="text-center mb-20">
+      {/* Hero Section */}
+      <section className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center px-6 py-3 bg-white/90 backdrop-blur-sm border border-blue-200 rounded-full text-sm font-medium mb-8 shadow-lg">
             <Users className="w-4 h-4 mr-2 text-blue-600" />
             <span className="text-blue-700">Neural Information Processing, Retrieval & Modelling Research Group</span>
           </div>
+
           <h1 className="text-6xl lg:text-7xl font-bold mb-8 leading-tight">
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
               Research Group
             </span>
+            <br />
+            <span className="text-gray-900 text-4xl lg:text-5xl">Researchers & PhD Students</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
+
+          <p className="text-xl text-gray-600 mb-16 max-w-5xl mx-auto leading-relaxed">
             Meet our talented researchers and PhD students working on cutting-edge AI and data science projects, 
             advancing the frontiers of neural information retrieval, computational intelligence, and responsible AI.
           </p>
-          
         </div>
+      </section>
 
-        {/* Current PhD Students */}
-        <section className="mb-24">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <GraduationCap className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900">Current PhD Students</h2>
-              <p className="text-gray-600 mt-1">Advancing the frontiers of AI and data science research</p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {teamMembers.filter(member => member.type === 'phd' && member.status === 'current').map((member, i) => (
-              <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200">
-                <div className="relative">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <GraduationCap className="w-10 h-10 text-white" />
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  </div>
-                  <div className="absolute top-0 right-0 w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{member.name}</h3>
-                <div className="bg-blue-50 rounded-xl p-3 mb-4">
-                  <p className="text-blue-800 text-sm font-medium">{member.position}</p>
-                </div>
-                <p className="text-gray-700 font-medium mb-4 leading-relaxed">{member.specialisation}</p>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <p className="text-gray-600 text-sm">Funded by: <span className="font-medium">{member.funder}</span></p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <p className="text-gray-600 text-sm">Started: <span className="font-medium">{member.startDate}</span></p>
-                  </div>
-                </div>
+      {/* Team Members Section */}
+      <section className="relative py-32 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Current PhD Students */}
+          <section className="mb-24">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <GraduationCap className="w-6 h-6 text-white" />
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Current Visiting Fellows */}
-        <section className="mb-24">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <Award className="w-6 h-6 text-white" />
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900">Current PhD Students</h2>
+                <p className="text-gray-600 mt-1">Advancing the frontiers of AI and data science research</p>
+              </div>
             </div>
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900">Current Visiting Fellows and Associates</h2>
-              <p className="text-gray-600 mt-1"> Current Researchers and Associates with ongoing affiliations at Loughborough University</p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {teamMembers.filter(member => member.type === 'visiting_fellow' && member.status === 'current').map((member, i) => (
-              <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-emerald-200">
-                <div className="flex items-start gap-6">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {teamMembers.filter(member => member.type === 'phd' && member.status === 'current').map((member, i) => (
+                <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-blue-200">
                   <div className="relative">
-                    <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <Award className="w-10 h-10 text-white" />
-                      <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <GraduationCap className="w-10 h-10 text-white" />
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                     <div className="absolute top-0 right-0 w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
                       <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">{member.name}</h3>
-                    <div className="bg-emerald-50 rounded-xl p-3 mb-3">
-                      <p className="text-emerald-800 text-sm font-medium">{member.position}</p>
-                    </div>
-                    <p className="text-gray-700 font-medium mb-3 leading-relaxed">{member.specialisation}</p>
-                    <div className="bg-blue-50 border-l-4 border-blue-400 p-3 rounded-lg">
-                      <p className="text-blue-700 text-sm font-medium">Previously: {member.previousRole}</p>
-                    </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{member.name}</h3>
+                  <div className="bg-blue-50 rounded-xl p-3 mb-4">
+                    <p className="text-blue-800 text-sm font-medium">{member.position}</p>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Research Alumni */}
-        <section className="mb-24">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <Users className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900">Research Alumni</h2>
-              <p className="text-gray-600 mt-1">Former research staff who have moved to prestigious academic positions</p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {teamMembers.filter(member => member.type === 'research_alumni').map((member, i) => (
-              <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-purple-200">
-                <div className="flex items-start gap-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-10 h-10 text-white" />
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-400/20 to-indigo-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">{member.name}</h3>
-                    <div className="bg-purple-50 rounded-xl p-3 mb-3">
-                      <p className="text-purple-800 text-sm font-medium">{member.position}</p>
-                    </div>
-                    <p className="text-gray-700 font-medium mb-3 leading-relaxed">{member.specialisation}</p>
-                    <div className="bg-blue-50 border-l-4 border-blue-400 p-3 rounded-lg">
-                      <p className="text-blue-700 text-sm font-medium">{member.previousRole}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* PhD Alumni */}
-        <section className="mb-24">
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <GraduationCap className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900">PhD Alumni</h2>
-              <p className="text-gray-600 mt-1">Successful PhD graduates from our research program</p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {teamMembers.filter(member => member.type === 'phd_alumni').map((member, i) => (
-              <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-indigo-200">
-                <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <GraduationCap className="w-10 h-10 text-white" />
-                  <div className="absolute -inset-1 bg-gradient-to-r from-indigo-400/20 to-purple-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">{member.name}</h3>
-                <div className="bg-indigo-50 rounded-xl p-3 mb-3">
-                  <p className="text-indigo-800 text-sm font-medium">{member.position}</p>
-                </div>
-                <p className="text-gray-700 font-medium mb-4 leading-relaxed">{member.specialisation}</p>
-                <div className="space-y-2">
-                  {member.funder && (
+                  <p className="text-gray-700 font-medium mb-4 leading-relaxed">{member.specialisation}</p>
+                  <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <p className="text-gray-600 text-xs">Funded by: <span className="font-medium">{member.funder}</span></p>
+                      <p className="text-gray-600 text-sm">Funded by: <span className="font-medium">{member.funder}</span></p>
                     </div>
-                  )}
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                    <p className="text-gray-600 text-xs">
-                      <span className="font-medium">{member.startDate} - {member.completionDate}</span>
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <p className="text-gray-600 text-sm">Started: <span className="font-medium">{member.startDate}</span></p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
 
-        {/* MRes Alumni */}
-        <section>
-          <div className="flex items-center gap-4 mb-12">
-            <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
-              <BookOpen className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h2 className="text-4xl font-bold text-gray-900">MRes Alumni</h2>
-              <p className="text-gray-600 mt-1">Master by Research graduates with specialized expertise</p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {teamMembers.filter(member => member.type === 'mres_alumni').map((member, i) => (
-              <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-amber-200">
-                <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <BookOpen className="w-10 h-10 text-white" />
-                  <div className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">{member.name}</h3>
-                <div className="bg-amber-50 rounded-xl p-3 mb-3">
-                  <p className="text-amber-800 text-sm font-medium">{member.position}</p>
-                </div>
-                <p className="text-gray-700 font-medium mb-4 leading-relaxed">{member.specialisation}</p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <p className="text-gray-600 text-xs">Institution: <span className="font-medium">{member.institution}</span></p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                    <p className="text-gray-600 text-xs">Completed: <span className="font-medium">{member.completionDate}</span></p>
-                  </div>
-                </div>
+          {/* Current Visiting Fellows */}
+          <section className="mb-24">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <Award className="w-6 h-6 text-white" />
               </div>
-            ))}
-          </div>
-        </section>
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900">Current Visiting Fellows and Associates</h2>
+                <p className="text-gray-600 mt-1">Current Researchers and Associates with ongoing affiliations at Loughborough University</p>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {teamMembers.filter(member => member.type === 'visiting_fellow' && member.status === 'current').map((member, i) => (
+                <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-emerald-200">
+                  <div className="flex items-start gap-6">
+                    <div className="relative">
+                      <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <Award className="w-10 h-10 text-white" />
+                        <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400/20 to-teal-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                      </div>
+                      <div className="absolute top-0 right-0 w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors">{member.name}</h3>
+                      <div className="bg-emerald-50 rounded-xl p-3 mb-3">
+                        <p className="text-emerald-800 text-sm font-medium">{member.position}</p>
+                      </div>
+                      <p className="text-gray-700 font-medium mb-3 leading-relaxed">{member.specialisation}</p>
+                      <div className="bg-blue-50 border-l-4 border-blue-400 p-3 rounded-lg">
+                        <p className="text-blue-700 text-sm font-medium">Previously: {member.previousRole}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
 
-        {/* Call to Action */}
-        <section className="mt-24">
-          <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-3xl p-12 text-white shadow-2xl overflow-hidden">
-            {/* Background decorations */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
-            
-            <div className="relative z-10 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
-                <Users className="w-4 h-4 mr-2" />
-                Join Our Research Group
+          {/* Research Alumni */}
+          <section className="mb-24">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <Users className="w-6 h-6 text-white" />
               </div>
-              <h2 className="text-4xl font-bold mb-6">Interested in Joining Our Team?</h2>
-              <p className="text-xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                We welcome talented researchers interested in neural information retrieval, computational intelligence, 
-                healthcare AI, and responsible AI development.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="mailto:g.cosma@lboro.ac.uk" 
-                  className="group bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
-                >
-                  <Mail className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-                  Contact for PhD Opportunities
-                </a>
-                <button 
-                  onClick={() => setCurrentPage('projects')}
-                  className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
-                >
-                  <ExternalLink className="w-6 h-6 group-hover:scale-110 transition-transform" />
-                  Explore Our Research
-                </button>
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900">Research Alumni</h2>
+                <p className="text-gray-600 mt-1">Former research staff who have moved to prestigious academic positions</p>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {teamMembers.filter(member => member.type === 'research_alumni').map((member, i) => (
+                <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-purple-200">
+                  <div className="flex items-start gap-6">
+                    <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <Users className="w-10 h-10 text-white" />
+                      <div className="absolute -inset-1 bg-gradient-to-r from-purple-400/20 to-indigo-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">{member.name}</h3>
+                      <div className="bg-purple-50 rounded-xl p-3 mb-3">
+                        <p className="text-purple-800 text-sm font-medium">{member.position}</p>
+                      </div>
+                      <p className="text-gray-700 font-medium mb-3 leading-relaxed">{member.specialisation}</p>
+                      <div className="bg-blue-50 border-l-4 border-blue-400 p-3 rounded-lg">
+                        <p className="text-blue-700 text-sm font-medium">{member.previousRole}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* PhD Alumni */}
+          <section className="mb-24">
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900">PhD Alumni</h2>
+                <p className="text-gray-600 mt-1">Successful PhD graduates from our research program</p>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {teamMembers.filter(member => member.type === 'phd_alumni').map((member, i) => (
+                <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-indigo-200">
+                  <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <GraduationCap className="w-10 h-10 text-white" />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-indigo-400/20 to-purple-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">{member.name}</h3>
+                  <div className="bg-indigo-50 rounded-xl p-3 mb-3">
+                    <p className="text-indigo-800 text-sm font-medium">{member.position}</p>
+                  </div>
+                  <p className="text-gray-700 font-medium mb-4 leading-relaxed">{member.specialisation}</p>
+                  <div className="space-y-2">
+                    {member.funder && (
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <p className="text-gray-600 text-xs">Funded by: <span className="font-medium">{member.funder}</span></p>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
+                      <p className="text-gray-600 text-xs">
+                        <span className="font-medium">{member.startDate} - {member.completionDate}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* MRes Alumni */}
+          <section>
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <BookOpen className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-4xl font-bold text-gray-900">MRes Alumni</h2>
+                <p className="text-gray-600 mt-1">Master by Research graduates with specialized expertise</p>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+              {teamMembers.filter(member => member.type === 'mres_alumni').map((member, i) => (
+                <div key={i} className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 hover:border-amber-200">
+                  <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <BookOpen className="w-10 h-10 text-white" />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">{member.name}</h3>
+                  <div className="bg-amber-50 rounded-xl p-3 mb-3">
+                    <p className="text-amber-800 text-sm font-medium">{member.position}</p>
+                  </div>
+                  <p className="text-gray-700 font-medium mb-4 leading-relaxed">{member.specialisation}</p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <p className="text-gray-600 text-xs">Institution: <span className="font-medium">{member.institution}</span></p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                      <p className="text-gray-600 text-xs">Completed: <span className="font-medium">{member.completionDate}</span></p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Call to Action */}
+          <section className="mt-24">
+            <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 rounded-3xl p-12 text-white shadow-2xl overflow-hidden">
+              {/* Background decorations */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-24 -translate-x-24"></div>
+              
+              <div className="relative z-10 text-center">
+                <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
+                  <Users className="w-4 h-4 mr-2" />
+                  Join Our Research Group
+                </div>
+                <h2 className="text-4xl font-bold mb-6">Interested in Joining Our Team?</h2>
+                <p className="text-xl mb-8 text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                  We welcome researchers interested in neural information retrieval, computational intelligence, 
+                  healthcare AI, and responsible AI development.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="mailto:g.cosma@lboro.ac.uk" 
+                    className="group bg-white text-blue-600 hover:bg-blue-50 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  >
+                    <Mail className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+                    Contact for PhD Opportunities
+                  </a>
+                  <button 
+                    onClick={() => setCurrentPage('projects')}
+                    className="group bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 px-10 py-5 rounded-2xl font-bold transition-all duration-300 inline-flex items-center gap-4 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  >
+                    <ExternalLink className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                    Explore Our Research
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
     </div>
   );
 
