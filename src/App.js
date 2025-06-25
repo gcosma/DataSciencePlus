@@ -1294,7 +1294,7 @@ const ProjectsPage = () => (
                                 Our research addresses the critical challenge of selective data removal from trained cross-modal models. 
                                 When users request data deletion (GDPR "right to be forgotten"), traditional retraining is computationally 
                                 prohibitive for large-scale cross-modal systems. We develop novel unlearning techniques that can selectively 
-                                remove specific image-text pairs from trained embeddings whilst preserving overall model performance and 
+                                remove text, images and specific image-text pairs from trained embeddings whilst preserving overall model performance and 
                                 cross-modal alignment quality.
                               </p>
                             </div>
