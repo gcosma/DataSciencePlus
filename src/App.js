@@ -665,9 +665,7 @@ const GrantCapturePage = () => {
             <br />
             <span className="text-gray-900 text-4xl lg:text-5xl">Timeline</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            External funding trajectory.
-          </p>
+    
         </div>
 
         {/* Funding Timeline */}
