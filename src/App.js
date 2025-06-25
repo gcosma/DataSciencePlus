@@ -1217,7 +1217,7 @@ const teamMembers = [
                     <p className="text-center text-sm text-gray-600 mt-3">Watch our software demo</p>
                     {project.pageId === 'decode' && (
                       <div className="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-lg mt-4">
-                        <p className="text-center text-base text-emerald-800 font-medium">If you are interested in exploring our trajectory analysis software for adults with intellectual disabilities, please get in touch to discuss potential collaboration opportunities.</p>
+                        <p className="text-center text-base text-emerald-800 font-medium">If you are interested in exploring our trajectory analysis software for adults with intellectual disabilities, please get in touch.</p>
                       </div>
                     )}
                   </div>
