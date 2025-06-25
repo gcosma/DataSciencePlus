@@ -1016,7 +1016,7 @@ const ProjectsPage = () => (
             className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
           >
             <Target className="w-5 h-5" />
-            KTP SVGC
+            KTP with SVGC
           </button>
         </div>
       </div>
