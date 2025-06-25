@@ -186,7 +186,7 @@ export default function ProfCosmaPortfolio() {
       category: "Government AI & Document Processing",
       status: "Active Research",
       funding: "KTP Grant - SVGC Partnership",
-      role: "Academic Supervisor",
+      role: "Principle Investigator/Academic Supervisor",
       icon: Target,
       image: svgcKtpImage, // Use the new image variable
       gradient: "from-green-400 to-emerald-600",
