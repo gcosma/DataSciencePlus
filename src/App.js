@@ -590,6 +590,80 @@ const teamMembers = [
               </div>
             </div>
           </div>
+{/* ADD YOUR ENHANCED EXPERTISE SECTION HERE */}
+    <div className="mt-20">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold text-gray-900 mb-6">Core Expertise</h2>
+        <p className="text-xl text-gray-600">Specialised research areas driving innovation in AI and data science</p>
+      </div>
+      
+      <div className="bg-gradient-to-br from-white/95 to-blue-50/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/50">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          
+          <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <div className="relative">
+              <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
+              </div>
+              <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <span className="text-gray-800 font-medium group-hover:text-blue-700 transition-colors">Cross-Modal Information Retrieval</span>
+          </div>
+
+          <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <div className="relative">
+              <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
+              </div>
+              <div className="absolute inset-0 bg-indigo-400 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <span className="text-gray-800 font-medium group-hover:text-indigo-700 transition-colors">Neural Machine Unlearning</span>
+          </div>
+
+          <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <div className="relative">
+              <div className="w-6 h-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
+              </div>
+              <div className="absolute inset-0 bg-purple-400 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <span className="text-gray-800 font-medium group-hover:text-purple-700 transition-colors">Healthcare AI & Temporal Modelling</span>
+          </div>
+
+          <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <div className="relative">
+              <div className="w-6 h-6 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
+              </div>
+              <div className="absolute inset-0 bg-emerald-400 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <span className="text-gray-800 font-medium group-hover:text-emerald-700 transition-colors">Responsible AI & Ethics</span>
+          </div>
+
+          <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <div className="relative">
+              <div className="w-6 h-6 bg-gradient-to-br from-rose-500 to-rose-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
+              </div>
+              <div className="absolute inset-0 bg-rose-400 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <span className="text-gray-800 font-medium group-hover:text-rose-700 transition-colors">Agentic NLP Systems</span>
+          </div>
+
+          <div className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/60 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+            <div className="relative">
+              <div className="w-6 h-6 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center shadow-lg">
+                <div className="w-3 h-3 bg-white rounded-full"></div>
+              </div>
+              <div className="absolute inset-0 bg-amber-400 rounded-full animate-ping opacity-20"></div>
+            </div>
+            <span className="text-gray-800 font-medium group-hover:text-amber-700 transition-colors">Bias Detection & Mitigation</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+        
         </div>
       </section>
     </div>
@@ -1170,17 +1244,44 @@ const teamMembers = [
               </div>
               
               <div className="space-y-6">
-                {/* I-SIRCh Image for I-SIRCh page */}
-                {project.pageId === 'isirch' && (
-                  <div className="relative mt-24">
-                    <img 
-                      src={isirchImage}
-                      alt="I-SIRCh AI System Interface"
-                      className="w-full h-80 object-cover rounded-3xl shadow-lg"
-                    />
-                  
-                  </div>
-                )}
+{/* I-SIRCh Image for I-SIRCh page */}
+{project.pageId === 'isirch' && (
+  <div className="relative mt-24">
+    <img 
+      src={isirchImage}
+      alt="I-SIRCh AI System Interface"
+      className="w-full h-80 object-cover rounded-3xl shadow-lg"
+    />
+  </div>
+)}
+
+{/* Themis Image for Themis page - matching I-SIRCh positioning */}
+{project.pageId === 'themis' && (
+  <div className="relative mt-24">
+    <img 
+      src={themisImage}
+      alt="Themis.AI Ethical AI System"
+      className="w-full h-80 object-cover rounded-3xl shadow-lg"
+    />
+    <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
+      <span className="text-sm font-semibold text-gray-700">{project.category}</span>
+    </div>
+  </div>
+)}
+
+{/* SVGC KTP Image for SVGC KTP page - matching I-SIRCh positioning */}
+{project.pageId === 'svgc-ktp' && (
+  <div className="relative mt-24">
+    <img 
+      src={svgcKtpImage}
+      alt="SVGC KTP Document Deduplication System"
+      className="w-full h-80 object-cover rounded-3xl shadow-lg"
+    />
+    <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
+      <span className="text-sm font-semibold text-gray-700">{project.category}</span>
+    </div>
+  </div>
+)}
                 
                 {project.hasVideo && project.hasMultipleVideos && project.youtubeIds ? (
                   <div className="space-y-4 mt-24">
@@ -1221,21 +1322,24 @@ const teamMembers = [
                       </div>
                     )}
                   </div>
-                ) : (
-                  <div className="relative">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-75 rounded-3xl`}></div>
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="relative w-full h-80 object-cover rounded-3xl"
-                    />
-                    <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
-                      <span className="text-sm font-semibold text-gray-700">{project.category}</span>
+) : (
+                  // Default image layout for other projects (only DECODE will use this now)
+                  project.pageId !== 'isirch' && project.pageId !== 'themis' && project.pageId !== 'svgc-ktp' && (
+                    <div className="relative">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-75 rounded-3xl`}></div>
+                      <img 
+                        src={project.image} 
+                        alt={project.title}
+                        className="relative w-full h-80 object-cover rounded-3xl"
+                      />
+                      <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full">
+                        <span className="text-sm font-semibold text-gray-700">{project.category}</span>
+                      </div>
+                      <div className="absolute bottom-6 right-6 bg-white p-4 rounded-2xl shadow-lg">
+                        <IconComponent className="w-8 h-8 text-gray-700" />
+                      </div>
                     </div>
-                    <div className="absolute bottom-6 right-6 bg-white p-4 rounded-2xl shadow-lg">
-                      <IconComponent className="w-8 h-8 text-gray-700" />
-                    </div>
-                  </div>
+                  )
                 )}
               </div>
             </div>
