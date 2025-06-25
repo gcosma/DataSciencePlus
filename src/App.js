@@ -2305,7 +2305,7 @@ const ResearchGroupPage = () => (
         date: "2022",
         title: "County Council Data Processing Training",
         type: "Consultancy Training",
-        description: "Delivered 23-hour training to County Council employees on pre-processing large data towards ethical machine learning.",
+        description: "Delivered training to County Council employees on pre-processing large data towards ethical machine learning.",
         status: "completed",
         icon: Target,
         color: "lime"
