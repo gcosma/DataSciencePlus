@@ -446,7 +446,7 @@ const teamMembers = [
         {isMenuOpen && (
           <div className="md:hidden pb-4 border-t border-gray-200 mt-4">
             <div className="space-y-2 pt-4">
-              {['home', 'projects', 'topics', 'group', 'outreach', 'contact'].map((page) => (
+              {['home', 'projects', 'topics', 'grants', 'group', 'outreach', 'contact'].map((page) => (
                 <button
                   key={page}
                   onClick={() => { setCurrentPage(page); setIsMenuOpen(false); }}
