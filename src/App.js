@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Play, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock, ChevronRight, Eye, Shield, Trash2 } from 'lucide-react';
+import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock, ChevronRight, Eye, Shield, Trash2 } from 'lucide-react';
 import profileImage from './images/profile/GCosma2.jpg';
 import decodeImage from './images/projects/decode-ai.jpg';
 import isirchImage from './images/projects/isirch-ai.jpg';
