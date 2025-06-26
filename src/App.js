@@ -2416,6 +2416,8 @@ const ResearchGroupPage = () => (
             </p>
           </div>
 
+        <CollapsibleConsultancyBox />
+
           {/* Timeline Section */}
           <section className="mb-20">
             <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Activities Timeline</h2>
