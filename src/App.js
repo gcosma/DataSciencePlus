@@ -104,7 +104,7 @@ export default function ProfCosmaPortfolio() {
       image: decodeImage,
       gradient: "from-emerald-400 to-cyan-600",
       partners: ["Leicestershire Partnership NHS Trust", "University of Leicester", "King's College London", "Swansea University"],
-      osf: "https://osf.io/kt5fy/", 
+      osf: "https://www.decode-project.org/", 
       youtubeId: "5SaU7rDzC3g",
       hasVideo: true,
       pageId: "decode"
@@ -1105,7 +1105,7 @@ const ProjectsPage = () => (
                           className="group flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
                           <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                          View on OSF
+                          DECODE (official) website
                         </a>
                       )}
                     </div>
