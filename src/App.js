@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock, ChevronRight, Eye, Shield, Trash2 } from 'lucide-react';
+import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock, ChevronRight, Eye, Shield, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 import profileImage from './images/profile/GCosma2.jpg';
 import decodeImage from './images/projects/decode-ai.jpg';
 import isirchImage from './images/projects/isirch-ai.jpg';
@@ -2329,6 +2329,74 @@ const ResearchGroupPage = () => (
       };
       return colors[color] || colors.blue;
     };
+
+
+  // ADD THE COLLAPSIBLE CONSULTANCY BOX COMPONENT HERE
+  const CollapsibleConsultancyBox = () => {
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    return (
+      <section className="mb-20">
+        <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+          {/* Header - Always Visible */}
+          <div 
+            className="p-8 cursor-pointer hover:bg-gray-50 transition-colors duration-300"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                  <Brain className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">Consultancy & Advisory Services</h2>
+                  <p className="text-gray-500 text-sm">Click to learn more about my consultancy offerings</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-500 hidden sm:block">
+                  {isExpanded ? 'Show less' : 'Show more'}
+                </span>
+                {isExpanded ? (
+                  <ChevronUp className="w-6 h-6 text-gray-400 transition-transform duration-300" />
+                ) : (
+                  <ChevronDown className="w-6 h-6 text-gray-400 transition-transform duration-300" />
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Expandable Content */}
+          <div className={`transition-all duration-500 ease-in-out overflow-hidden ${
+            isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}>
+            <div className="px-8 pb-8 border-t border-gray-100 bg-gradient-to-br from-blue-50 to-indigo-50">
+              <div className="pt-6">
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                  In addition to my research and teaching, I provide consultancy and advisory services to organisations 
+                  seeking expertise in AI and data science. I offer guidance across the full AI/ML development lifecycle 
+                  - from problem definition and designing solutions, through data preparation and collection, to model training, validation, deployment, and monitoring.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a 
+                    href="mailto:g.cosma@lboro.ac.uk"
+                    className="group bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
+                    <Mail className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                    Discuss Your Requirements
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-24">
