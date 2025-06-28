@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock, ChevronRight, Eye, Shield, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import {Github, Linkedin, Mail, ExternalLink, ArrowRight, Menu, X, BookOpen, Users, Award, GraduationCap, Heart, Target, Brain, Presentation, Monitor, Code, Globe, Calendar, MapPin, Clock, ChevronRight, Eye, Shield, Trash2, ChevronDown, ChevronUp, Search} from 'lucide-react';
 import profileImage from './images/profile/GCosma2.jpg';
 import decodeImage from './images/projects/decode-ai.jpg';
 import isirchImage from './images/projects/isirch-ai.jpg';
@@ -38,14 +38,14 @@ export default function ProfCosmaPortfolio() {
   // Research themes data
   const researchThemes = [
     {
-      id: 'cross-modal',
-      title: 'Cross-Modal Information Retrieval',
+      id: 'information-retrieval',
+      title: 'Information Retrieval',
       icon: Eye,
       gradient: 'from-blue-500 to-cyan-500',
-      keywords: ['Computer Vision', 'Natural Language Processing', 'Vision Transformers', 'CLIP', 'Neural Search'],
-      applications: ['Image Search', 'Content Discovery', 'Multimedia Retrieval', 'Digital Libraries'],
-      description: 'Pioneering neural architectures that enable AI systems to understand and retrieve information across visual and textual modalities.',
-      whatIsIt: 'Cross-modal information retrieval bridges the semantic gap between different data modalities by learning joint representations where semantically similar content from different formats (images, text, video) are positioned close together in a shared embedding space.',
+      keywords: ['Computer Vision', 'Natural Language Processing', 'Vision Transformers', 'CLIP', 'Neural Search', 'Retrieval-Augmented Generation', 'Cross-Modal Learning'],
+      applications: ['Image Search', 'Content Discovery', 'Multimedia Retrieval', 'Digital Libraries', 'Knowledge Systems', 'Question Answering'],
+      description: 'Advancing neural architectures that enable AI systems to understand, retrieve, and generate information across visual and textual modalities with enhanced contextual understanding.',
+      whatIsIt: 'Information retrieval encompasses advanced techniques for finding and accessing information across different data modalities. This includes cross-modal retrieval that bridges the semantic gap between images and text, retrieval-augmented generation systems that combine large language models with dynamic knowledge retrieval, and neural search architectures that understand complex user queries.',
     },
     {
       id: 'nlp-agentic',
@@ -1191,11 +1191,11 @@ const ProjectsPage = () => (
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-center max-w-6xl mx-auto">
             <button 
-              onClick={() => scrollToSection('cross-modal-section')}
+              onClick={() => scrollToSection('information-retrieval-section')}
               className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 px-6 py-4 rounded-xl font-semibold transition-all text-white flex items-center gap-2 text-sm lg:text-base shadow-lg hover:shadow-xl transform hover:scale-105 min-w-[180px]"
             >
               <Eye className="w-5 h-5" />
-              Cross-Modal IR
+              Information Retrieval
             </button>
             <button 
               onClick={() => scrollToSection('nlp-agentic-section')}
@@ -1280,19 +1280,42 @@ const ProjectsPage = () => (
                         
 
                           {/* Machine Unlearning container - only for cross-modal theme */}
-                          {theme.id === 'cross-modal' && (
-                            <div className="bg-cyan-50 rounded-2xl p-6 border-l-4 border-cyan-500 border border-cyan-200 shadow-sm">
-                              <h4 className="text-lg font-bold text-cyan-700 mb-3 flex items-center gap-2">
-                                <Trash2 className="w-5 h-5" />
-                                Machine Unlearning in Cross-Modal Systems
-                              </h4>
-                              <p className="text-gray-700 leading-relaxed">
-                                Our research addresses the critical challenge of selective data removal from trained cross-modal models. 
-                                When users request data deletion (GDPR "right to be forgotten"), traditional retraining is computationally 
-                                prohibitive for large-scale cross-modal systems. We develop novel unlearning techniques that can selectively 
-                                remove text, images and specific image-text pairs from trained embeddings whilst preserving overall model performance and 
-                                cross-modal alignment quality.
-                              </p>
+                          {theme.id === 'information-retrieval' && (
+                            <div className="space-y-6">
+      
+                              
+                              {/* Cross-Modal Information Retrieval subsection */}
+                              <div className="bg-cyan-50 rounded-2xl p-6 border-l-4 border-cyan-500 border border-cyan-200 shadow-sm">
+                                <h4 className="text-lg font-bold text-cyan-700 mb-3 flex items-center gap-2">
+                                  <Eye className="w-5 h-5" />
+                                  Cross-Modal Information Retrieval
+                                </h4>
+                                <p className="text-gray-700 leading-relaxed">
+                                  Cross-modal information retrieval bridges the semantic gap between different data modalities by learning joint representations where semantically similar content from different formats such as images, text, and video are positioned close together in a shared embedding space. Our research focuses on developing sophisticated neural architectures that enable seamless understanding and retrieval across visual and textual content.
+                                </p>
+                              </div>
+
+                              {/* Machine Unlearning subsection */}
+                              <div className="bg-orange-50 rounded-2xl p-6 border-l-4 border-orange-500 border border-orange-200 shadow-sm">
+                                <h4 className="text-lg font-bold text-orange-700 mb-3 flex items-center gap-2">
+                                  <Trash2 className="w-5 h-5" />
+                                  Machine Unlearning in Information Retrieval Systems
+                                </h4>
+                                <p className="text-gray-700 leading-relaxed">
+                                  Our research addresses the critical challenge of selective data removal from trained information retrieval models. When users request data deletion under GDPR regulations, traditional retraining is computationally prohibitive for large-scale retrieval systems. We develop novel unlearning techniques that can selectively remove text, images and specific image-text pairs from trained embeddings whilst preserving overall model performance and cross-modal alignment quality. This work is essential for ensuring compliance with privacy regulations while maintaining the effectiveness of sophisticated retrieval architectures.
+                                </p>
+                              </div>
+
+                              {/* RAG subsection */}
+                              <div className="bg-teal-50 rounded-2xl p-6 border-l-4 border-teal-500 border border-teal-200 shadow-sm">
+                                <h4 className="text-lg font-bold text-teal-700 mb-3 flex items-center gap-2">
+                                  <Search className="w-5 h-5" />
+                                  Retrieval-Augmented Generation (RAG)
+                                </h4>
+                                <p className="text-gray-700 leading-relaxed">
+                                  Our research in Retrieval-Augmented Generation focuses on developing systems that enhance large language model capabilities by dynamically retrieving relevant information from external knowledge bases. We work on improving retrieval accuracy, developing efficient indexing strategies for multimodal content, and creating robust architectures that seamlessly integrate retrieval with generation processes. This includes research into dense passage retrieval, cross-modal knowledge fusion, and adaptive retrieval strategies that can handle diverse query types and knowledge domains.
+                                </p>
+                              </div>
                             </div>
                           )}
                         </div>
@@ -1964,7 +1987,8 @@ const ResearchGroupPage = () => (
               </div>
               <div>
                 <h2 className="text-4xl font-bold text-gray-900">Current PhD Students</h2>
-                <p className="text-gray-600 mt-1">Advancing the frontiers of AI and data science research</p>
+                <p className="text-gray-600 mt-1">  Advancing the frontiers of artificial intelligence through Information Retrieval systems, 
+  Agentic NLP Systems, and Healthcare AI & Temporal Modelling.</p>
               </div>
             </div>
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
